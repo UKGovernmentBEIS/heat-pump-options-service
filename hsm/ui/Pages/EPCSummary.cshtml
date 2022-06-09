@@ -1,0 +1,92 @@
+﻿@page
+@model OCC.HSM.UI.Pages.EPCSummaryModel
+@{
+    ViewData["Title"] = "EPCSummary";
+    Layout = "~/Pages/Shared/_mainLayout.cshtml";
+
+    string epc_image = String.Empty;
+    string energyRating = "?";
+    string ratingDate = Model.RatingDate;
+
+    if (!String.IsNullOrEmpty(Model.Rating) && Model.Rating.Length == 1)
+    {
+        epc_image = $"mini-epc-{Model.Rating.ToLower()}.png";
+        energyRating = Model.Rating.ToUpperInvariant();
+    }
+}
+
+<form method="post">
+    <div class="hsm-EPCSummary-page">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds-from-desktop">
+                <section class="hsm-EPCSummary-page-section hsm-EPCSummary-page-section-overview govuk-!-margin-bottom-6">
+                    <h1 class="govuk-heading-xl govuk-!-margin-bottom-5 hsm-heading-1">Your EPC summary</h1>
+                    <p class="govuk-body govuk-!-margin-bottom-3">Based on your address we found the latest EPC certificate for your home which means that some of the questions ahead can be answered for you.</p>
+                    <p class="govuk-body govuk-!-margin-bottom-3">An Energy Performance Certificate (EPC) was produced for your home in @ratingDate.</p>
+                    <p class="govuk-body govuk-!-margin-bottom-5">Your home was given an energy rating of @energyRating. Most homes appear around grade D.</p>
+                    <dl class="govuk-summary-list govuk-!-margin-bottom-8">
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                                Property type
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                                @Model.PropertyType
+                            </dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                                Total floor area
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                                @Model.FloorArea square metres
+                            </dd>
+                        </div>
+                    </dl>
+                </section>
+
+                <section class="hsm-EPCSummary-page-section hsm-EPCSummary-page-section-features govuk-!-margin-bottom-6">
+                    <table class="govuk-table">
+                        <caption class="govuk-table__caption govuk-table__caption--l">Your property’s features</caption>
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header">Feature</th>
+                                <th scope="col" class="govuk-table__header">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="govuk-table__header">Wall</th>
+                                <td class="govuk-table__cell">@Model.WallType</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="govuk-table__header">Roof</th>
+                                <td class="govuk-table__cell">@Model.RoofType</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="govuk-table__header">Window</th>
+                                <td class="govuk-table__cell">@Model.WindowsType</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="govuk-table__header">Main heating</th>
+                                <td class="govuk-table__cell">@Model.MainheatType</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="govuk-inset-text">
+                        You will be able to review and edit this information prior to obtaining your results. 
+                    </div>
+                    <input type="submit" asp-page-handler="ContinueWithEPC" value="Continue" class="govuk-button govuk-!-display-block" data-module="govuk-button">
+
+                    <p class="govuk-body govuk-!-margin-bottom-3">If this information is incorrect then 
+                    <input type="submit" asp-page-handler="ContinueWithoutEPC" value="Continue without Energy Performance Certificate (EPC)" class="govuk-body govuk-link hsm-form-link hsm-input-epc-large" role="link"/>
+                    <input type="submit" asp-page-handler="ContinueWithoutEPC" value="Continue without EPC" class="govuk-body govuk-link hsm-form-link hsm-input-epc-small" role="link" />
+                    </p>
+                </section>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+

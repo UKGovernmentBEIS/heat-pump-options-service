@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="15px" height="18px" viewBox="0 0 15 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 6</title>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-6" transform="translate(1.000000, 1.000000)">
+            <polyline id="Path" stroke="#03C2EA" stroke-linecap="round" stroke-linejoin="round" points="4.84615385 8.6625 6.19230769 9.975 8.88461538 7.35"></polyline>
+            <polyline id="Path" stroke="#03C2EA" stroke-linecap="round" stroke-linejoin="round" points="11.3076923 2.3625 13.4615385 2.3625 13.4615385 15.75 5.32907052e-14 15.75 5.32907052e-14 2.3625 2.15384615 2.3625"></polyline>
+            <path d="M8.61538462,1.8375 C8.61538462,0.822675 7.77161538,0 6.73076923,0 C5.68992308,0 4.84615385,0.822675 4.84615385,1.8375 L3.5,1.8375 L3.5,3.9375 L9.96153846,3.9375 L9.96153846,1.8375 L8.61538462,1.8375 Z" id="Path" stroke="#03C2EA" stroke-linecap="round" stroke-linejoin="round"></path>
+            <ellipse id="Oval" fill="#03C2EA" fill-rule="nonzero" cx="6.73076923" cy="1.8375" rx="1" ry="1"></ellipse>
+            <polyline id="Path" stroke="#03C2EA" stroke-linecap="round" stroke-linejoin="round" points="11.8461538 3.9375 11.8461538 14.175 1.61538462 14.175 1.61538462 3.9375"></polyline>
+        </g>
+    </g>
+</svg>

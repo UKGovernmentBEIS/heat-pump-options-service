@@ -1,0 +1,169 @@
+@page
+@model OCC.HSM.UI.Pages.CookiePolicyModel
+@{
+    ViewData["Title"] = "CookiePolicy";
+    Layout = "~/Pages/Shared/_altLayoutPolicy.cshtml";
+}
+
+<input type="hidden" id="hiddenReturnPage" value="@Model.ReturnPage" />
+<div class="hsm-cookies-page">
+    <div class="govuk-grid-row govuk-!-margin-bottom-8">
+        <div class="govuk-grid-column-two-thirds-from-desktop">
+
+            @* --- TODO - Success banner only renders when a user changes/saves their settings --- *@
+            <div id="cookie-settings-message" class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner" hidden>
+                <div class="govuk-notification-banner__header">
+                    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+                        Success
+                    </h2>
+                </div>
+                <div class="govuk-notification-banner__content">
+                    <p class="govuk-notification-banner__heading">
+                        You’ve set your cookie preferences. <a class="govuk-notification-banner__link" asp-page="@Model.ReturnPage">Go back to the page you were looking at</a>.
+                    </p>
+                </div>
+            </div>
+
+            <section class="hsm-cookies-page-section hsm-cookies-page-section-overview govuk-!-margin-bottom-8">
+                <h1 class="govuk-heading-l hsm-heading-1">Cookies on Our Service</h1>
+                <p class="govuk-body">
+                    Cookies are small files saved on your phone, tablet or computer when you visit a website. 
+                </p>
+                <p class="govuk-body">
+                    The Heat Pump Options service uses cookies in order to understand how you use the service so we can update and improve it.
+                </p>
+                <p class="govuk-body">
+                    The cookies we use don’t identify you personally. You can still use the Heat Pump Options service if you don’t accept cookies that measure website use.
+                </p>
+            </section>
+
+            <section class="hsm-cookies-page-section hsm-cookies-page-section-essential">
+                <h2 class="govuk-heading-m">Cookie settings</h2>
+                <p class="govuk-body">
+                    We use 2 types of cookie. You can choose which cookies you’re happy for us to use.
+                </p>
+
+                <h2 class="govuk-heading-m">Essential cookies</h2>
+                <p class="govuk-body">
+                    Essential cookies keep your information secure while you use this service. We do not need to ask permission to use them.
+                </p>
+
+                <table class="govuk-table">
+                    <thead class="govuk-table__head">
+                        <tr class="govuk-table__row">
+                            <th scope="col" class="govuk-table__header app-custom-class">Name</th>
+                            <th scope="col" class="govuk-table__header app-custom-class">Purpose</th>
+                            <th scope="col" class="govuk-table__header app-custom-class">Expires</th>
+                        </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                        <tr class="govuk-table__row">
+                            <th scope="row" class="govuk-table__header">.AspNetCore.Antiforgery</th>
+                            <td class="govuk-table__cell">Generates and validates tokens to prevent Cross-Site Request Forgery attacks.</td>
+                            <td class="govuk-table__cell">End of your session</td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <th scope="row" class="govuk-table__header">ARRAffinity / ARRAffinitySameSite</th>
+                            <td class="govuk-table__cell">Used for load balancing to make sure the requested pages are routed to the same server in any browsing session.</td>
+                            <td class="govuk-table__cell">End of your session</td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <th scope="row" class="govuk-table__header">HSMSession</th>
+                            <td class="govuk-table__cell">Session state cookie, used to persist data across requests from a client.</td>
+                            <td class="govuk-table__cell">End of your session</td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <th scope="row" class="govuk-table__header">hsm_cookies_accepted / hsm_cookies_rejected/ hsm_msg_hide</th>
+                            <td class="govuk-table__cell">Cookies used to save your cookie consent settings.</td>
+                            <td class="govuk-table__cell">1 year</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="hsm-cookies-page-section hsm-cookies-page-section-analytics">
+                <h2 class="govuk-heading-m">Analytics cookies (optional)</h2>
+                <p class="govuk-body">
+                    With your permission, we use Google Analytics to collect data about how you use the Heat Pump Options service. This information helps us to improve our service.
+                </p>
+                <p class="govuk-body">
+                    Google is not allowed to use or share our analytics data with anyone.
+                </p>
+                <p class="govuk-body">
+                    Google Analytics stores anonymised information about:
+                </p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>how you got to the Heat Pump Options site</li>
+                    <li>the pages you visit on the Heat Pump Options service and how long you spend on them</li>
+                    <li>what you click on while using the Heat Pump Options service</li>
+                </ul>
+                <p class="govuk-body">
+                    No personal details are stored with this information, so you can’t be identified.
+                </p>
+
+                <table class="govuk-table">
+                    <thead class="govuk-table__head">
+                        <tr class="govuk-table__row">
+                            <th scope="col" class="govuk-table__header app-custom-class">Name</th>
+                            <th scope="col" class="govuk-table__header app-custom-class">Purpose</th>
+                            <th scope="col" class="govuk-table__header app-custom-class">Expires</th>
+                        </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                        <tr class="govuk-table__row">
+                            <th scope="row" class="govuk-table__header">_ga / _ga_</th>
+                            <td class="govuk-table__cell govuk-!-width-one-half">Statistics collection, used to store and count pageviews.</td>
+                            <td class="govuk-table__cell">2 years</td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+
+                @* IF cookie settings requires javascript use this html instead of the radio buttons --- *@
+                <noscript>
+                    <style type="text/css">
+                        #js-enabled-content {
+                            display: none;
+                        }
+                    </style>
+                    <div class="hsm-cookies-page__no-javascript">
+                        <h2 class="govuk-heading-l">Change your cookie settings</h2>
+                        <p class="govuk-body">We cannot change your cookie settings at the moment because JavaScript is not running in your browser. To fix this, try:</p>
+                        <ul class="govuk-list govuk-list--bullet">
+                            <li>turning on JavaScript in your browser settings</li>
+                            <li>reloading this page</li>
+                        </ul>
+                    </div>
+                </noscript>
+
+                <form>
+                    <div class="govuk-form-group govuk-!-margin-top-6">
+                        <fieldset class="govuk-fieldset">
+                            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                                Do you want to accept analytics cookies?
+                            </legend>
+                            <div class="govuk-radios govuk-radios--inline">
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="cookies-analytics-yes" name="cookies-analytics" type="radio" value="on">
+                                    <label class="govuk-label govuk-radios__label" for="cookies-analytics-yes">
+                                        Use cookies that measure my website use
+                                    </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="cookies-analytics-no" name="cookies-analytics" type="radio" value="off">
+                                    <label class="govuk-label govuk-radios__label" for="cookies-analytics-no">
+                                        Do not use cookies that measure my website use
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <button class="govuk-button" onclick="SaveCookiesSettings()" type="submit">Save cookie settings</button>
+                </form>
+            </section>
+
+
+        </div>
+    </div>
+</div>
+

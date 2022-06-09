@@ -1,0 +1,424 @@
+:root {
+    --govuk-colour-blue: #1d70b8;
+    --govuk-colour-blue-dark: #003078;
+    --govuk-colour-blue-light: #5694ca;
+    --govuk-text-colour: #0b0c0c;
+    --govuk-colour-light-grey: #f3f2f1;
+    --govuk-colour-dark-grey: #505a5f;
+    --govuk-colour-green: #00703c;
+}
+
+/* ------------------------------ */
+/* LAYOUT */
+
+.hsm-width-1200 {
+    max-width: 1200px;
+}
+
+.hsm-section-break-blue {
+    border: none;
+    border-bottom-color: #1d70b8;
+    border-bottom: 3px solid var(--govuk-colour-blue);
+}
+
+@media only screen and (min-width: 768px) {
+    .hsm-width-1200 {
+        margin-right: 60px;
+        margin-left: 60px;
+    }
+}
+
+@media only screen and (min-width: 1290px) {
+    .hsm-width-1200 {
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+
+@media print {
+    .no-print, .no-print * {
+        display: none !important;
+    }
+}
+
+/*Browsers, by default, have their option to print background-colors and images turned off. You can add some lines in CSS to bypass this*/
+* {
+    -webkit-print-color-adjust: exact !important;  Chrome, Safari, Edge 
+    color-adjust: exact !important; Firefox
+}
+
+/* ------------------------------ */
+/* TYPOGRAPHY */
+
+.hsm-heading-1 {
+    /* Temp override */
+    padding-left: 0;
+}
+
+.hsm-heading-2--bg-black {
+    color: #ffffff;
+    background-color: black;
+    border: 2px solid black;
+    padding: 20px 30px 20px 20px;
+    margin-bottom: 0;
+}
+
+.hsm-heading-green {
+    display: flex;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #00703c;
+    color: var(--govuk-colour-green);
+}
+
+.hsm-heading-green--align-center {
+    align-self: center;
+    padding: 0 2px;
+}
+
+.hsm-heading-green--align-start {
+    align-self: start;
+    padding: 0 2px;
+}
+
+.hsm-caption {
+    color: #505a5f;
+    color: var(--govuk-colour-dark-grey);
+}
+
+@media only screen and (min-width: 640px) {
+    .hsm-heading-2--bg-black {
+        padding: 20px 15px 20px 15px;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    .hsm-heading-2--bg-black {
+        padding: 20px 30px 20px 30px;
+    }
+}
+
+/* ------------------------------ */
+/* LINKS */
+
+.hsm-form-link {
+    text-decoration: underline;
+    background: none;
+    border: none;
+    color: #1d70b8;
+    color: var(--govuk-colour-blue);
+}
+
+.hsm-form-link--back {
+    color: #0b0c0c;
+    color: var(--govuk-text-colour);
+}
+
+/* ------------------------------ */
+/* HOME PAGE */
+
+.hsm-home-page-section-more__links {
+    padding-left: 45px;
+}
+
+.hsm-home-page-section-sidebar {
+    margin-top: 50px;
+}
+
+@media only screen and (min-width: 768px) {
+    .hsm-home-page-section-sidebar {
+        margin-top: 0;
+    }
+}
+
+/* ------------------------------ */
+/* POSTCODE PAGE */
+
+.hsm-input-epc-large {
+    display: none;
+}
+
+@media only screen and (min-width: 415px) {
+    .hsm-input-epc-small {
+        display: none;
+    }
+
+    .hsm-input-epc-large {
+        display: inline;
+    }
+}
+
+/* ------------------------------ */
+/* QUESTION PAGE  */
+
+/* .hsm-info {
+    position: relative;
+    background-color: var(--govuk-colour-light-grey);
+    padding: 15px;
+}
+
+.hsm-info__description {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-left: 45px;
+}
+
+.hsm-info__img {
+    width: 125px;
+    height: 80px;
+}
+
+.hsm-info__icon {
+    position: absolute;
+    min-width: 30px;
+    height: 30px;
+    background-color: var(--govuk-colour-blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 24px;
+    margin-right: 15px;
+} */
+
+.hsm-radios-images {
+    display: flex;
+}
+
+.hsm-radios-images__img {
+    display: none;
+}
+
+.hsm-link {
+    text-align: center;
+}
+
+@media only screen and (min-width: 640px) {
+    .hsm-radios-images__img {
+        display: inline;
+    }
+
+    .hsm-link {
+        text-align: left;
+    }
+}
+
+/* ------------------------------ */
+/* RESULTS PAGE  */
+.hsm-results-page-pdf {
+    width: 1000px;
+}
+
+.hsm-results-page-section-pumps-pdf {
+    /*width: 500px;*/
+    font-size: 9px!important;
+}
+
+.custom-font-pdf {
+    font-size: 17px;
+}
+
+.hsm-results-page-section-compare {
+    background-color: #f3f2f1;
+    background-color: var(--govuk-colour-light-grey);
+}
+
+.hsm-next-steps-list {
+    list-style: none;
+    counter-reset: orderedlist;
+    border: 2px solid black;
+    padding: 20px;
+}
+
+.hsm-next-steps-list__item {
+    position: relative;
+    padding-left: 35px;
+}
+
+    .hsm-next-steps-list__item::before {
+        counter-increment: orderedlist;
+        content: counter(orderedlist);
+        width: 26px;
+        height: 26px;
+        font-weight: bold;
+        color: #ffffff;
+        background-color: black;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+@media only screen and (min-width: 640px) {
+    .hsm-next-steps-list__item {
+        padding-top: 50px;
+        padding-left: 0;
+    }
+
+        .hsm-next-steps-list__item::before {
+            width: 40px;
+            height: 40px;
+        }
+}
+
+@media only screen and (min-width: 770px) {   
+
+    .hsm-pump-details-page-section-next-steps {
+        margin-top: 110px;
+    }
+
+    .hsm-results-page-section-next-steps {
+        position: absolute;
+    }
+
+    .hsm-results-page-section-next-steps-pdf {        
+        overflow-wrap: break-word;        
+    }
+
+    .hsm-next-steps-list {
+        padding: 20px;
+    }
+}
+
+@media only screen and (min-width: 940px) {
+    .hsm-next-steps-list {
+        padding: 30px;
+    }
+}
+
+/* ------------------------------ */
+/* RESULTS ALTERNATE PAGE  */
+
+.hsm-resultsAlt-page-section-compare {
+    background-color: #f3f2f1;
+    background-color: var(--govuk-colour-light-grey);
+}
+
+/* ------------------------------ */
+/* COMPARISON PAGE  */
+
+.hsm-accordion-icon {
+    margin-right: 10px;
+}
+
+/* ------------------------------ */
+/* PUMP DETAILS PAGE  */
+
+.hsm-pump-details-page-pdf {
+    width: 1000px;
+}
+
+.hsm-pump-details-page-section-pdf {
+    width: 500px;
+    font-size: 11px;
+    overflow-wrap: break-word;
+}
+
+.hsm-pump-details-page-section-next-steps-pdf {
+    position: absolute;
+    overflow-wrap: break-word;
+    width: 385px;
+}
+
+.hsm-pump-details-page-section__figure {
+    background-color: #f3f2f1;
+    background-color: var(--govuk-colour-light-grey);
+}
+
+.hsm-pump-details-page-section__figure-img {
+    width: 100%;
+    height: auto;
+}
+
+
+/* ------------------------------ */
+/* BUTTONS / INPUTS */
+
+.hsm-button--start {
+    margin-bottom: 0px;
+}
+
+@media only screen and (min-width: 640px) {
+    .hsm-input--postcode {
+        width: 23ex;
+    }
+}
+
+.hsm-input-wrapper {
+    position: relative;
+}
+
+    .hsm-input-wrapper::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 3px;
+        width: 7px;
+        height: 7px;
+        margin: auto 0;
+        -webkit-transform: rotate(225deg);
+        -ms-transform: rotate(225deg);
+        transform: rotate(225deg);
+        border: solid;
+        border-width: 1px 1px 0 0;
+        border-color: #505a5f;
+        z-index: 1;
+    }
+
+/* ------------------------------ */
+/* UTILITY CLASSES */
+
+.hsm-hidden {
+    display: none;
+}
+
+.hsm-hidden-desktop {
+    display: inline;
+}
+
+.hsm-hidden-tablet {
+    display: none;
+}
+
+@media only screen and (min-width: 768px) {
+    .hsm-hidden-tablet {
+        display: inline;
+    }
+
+    .hsm-hidden-desktop {
+        display: none;
+    }
+}
+
+.hsm-relative {
+    position: relative;
+}
+
+.hsm-wrap {
+    word-wrap: break-word;
+}
+
+.hsm-margin-bottom-0 {
+    margin-bottom: 0px;
+}
+
+.hsm-margin-bottom-1 {
+    margin-bottom: 5px;
+}
+
+.hsm-width-one-half {
+    width: 50%;
+}
+
+@media only screen and (min-width: 640px) {
+    .hsm-margin-bottom-1 {
+        margin-bottom: 10px;
+    }
+}

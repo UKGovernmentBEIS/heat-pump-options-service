@@ -1,0 +1,159 @@
+﻿@model OCC.HSM.UI.ViewModels.ResultsViewModel
+@{
+}
+
+@if (Model?.EohResult != null)
+{
+    <div class="hsm-results-page">
+
+        <div class="govuk-grid-row govuk-!-margin-bottom-8">
+            <div class="govuk-grid-column-two-thirds-from-desktop">
+                <section class="hsm-results-page-section hsm-results-page-section-intro">
+                    <h1 class="govuk-heading-xl govuk-!-margin-bottom-6 hsm-heading-1">Results Overview</h1>
+                    
+                    <p class="govuk-body hsm-margin-bottom-0">Based on <a asp-page="Summary" class="govuk-link govuk-link--no-visited-state">your answers</a>, @Model.NumberOfSuitableHeatPumps of the 4 assessed heat pump types may be an option for your home. </p>
+                </section>
+            </div>
+        </div>
+
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds-from-desktop">
+
+                <section class="hsm-results-page-section hsm-results-page-section-compare govuk-!-padding-6 govuk-!-margin-bottom-8">
+                    <h2 class="govuk-heading-l govuk-!-margin-bottom-4">Compare Your Heat Pump Options</h2>
+                    <p class="govuk-body govuk-!-margin-bottom-5">The comparison page provides a summary of the heat pumps which may be an option for your home. It provides a comparison of the estimated installation costs, carbon emissions and an overview of the cost of home improvements which you may need to make. </p>
+                    <a asp-page="ResultsComparison" role="button" draggable="false" class="govuk-button hsm-margin-bottom-0" data-module="govuk-button">Compare Heat Pump Options</a>
+                </section>
+
+                <section class="hsm-results-page-section hsm-results-page-section-pumps">
+                    <h2 class="govuk-heading-l govuk-!-margin-bottom-4">More Information on the Heat Pump Types</h2>
+
+                    <ol class="govuk-list">
+                        <li>
+                            <div class="hsm-results-page-section-pumps__air govuk-!-margin-bottom-8">
+                                <h3 class="govuk-heading-m govuk-!-margin-bottom-4 hsm-heading-1"><span class="govuk-visually-hidden">Option 1:</span>Air Source Heat Pump </h3>
+                                @if (Model.EohResult.LtAshpSuitable == (ushort)Enums.EnumHeatPumpSuitability.Suitable)
+                                {
+                                    <strong class="govuk-tag govuk-tag--green govuk-!-margin-bottom-4">May be an option for your home</strong>
+                                }
+                                else if (Model.EohResult.LtAshpSuitable == (ushort)Enums.EnumHeatPumpSuitability.NotSuitable)
+                                {
+                                    <strong class="govuk-tag govuk-tag--red govuk-!-margin-bottom-4">Not an option for your home</strong>
+                                }
+                                <p class="govuk-body govuk-!-margin-bottom-4">An Air Source Heat Pump uses heat from the outside air and an electric compressor system to provide space heating and hot water. </p>
+
+                                <a asp-page="PumpDetails" asp-route-heatpump="@Enums.EnumHeatPumpType.AirSource.ToString()" role="button" draggable="false" class="govuk-button hsm-margin-bottom-0" data-module="govuk-button" aria-label="Read more about the Air Source Heat Pump">Read more about this heat pump</a>
+
+                            </div>
+                        </li>
+                        <li>
+                            <div class="hsm-results-page-section-pumps__high-temp govuk-!-margin-bottom-8">
+                                <h3 class="govuk-heading-m govuk-!-margin-bottom-4 hsm-heading-1"><span class="govuk-visually-hidden">Option 2:</span>High Temperature Air Source Heat Pump</h3>
+                                @if (Model.EohResult.HtAshpSuitable == (ushort)Enums.EnumHeatPumpSuitability.Suitable)
+                                {
+                                    <strong class="govuk-tag govuk-tag--green govuk-!-margin-bottom-4">May be an option for your home</strong>
+                                }
+                                else if (Model.EohResult.HtAshpSuitable == (ushort)Enums.EnumHeatPumpSuitability.NotSuitable)
+                                {
+                                    <strong class="govuk-tag govuk-tag--red govuk-!-margin-bottom-4">Not an option for your home</strong>
+                                }
+                                <p class="govuk-body govuk-!-margin-bottom-4">A High Temperature Air Source Heat Pump uses heat from the outside air and an electric compressor system to provide space heating and hot water. This heat pump can output water at higher temperatures than a standard heat pump meaning it may be used in properties with fewer energy efficiency measures. </p>
+
+                                <a asp-page="PumpDetails" asp-route-heatpump="@Enums.EnumHeatPumpType.HighTempAirSource.ToString()" role="button" draggable="false" class="govuk-button hsm-margin-bottom-0" data-module="govuk-button" aria-label="Read more about the High Temperature Air Source Heat Pump">Read more about this heat pump</a>
+
+                            </div>
+                        </li>
+                        <li>
+                            <div class="hsm-results-page-section-pumps__ground govuk-!-margin-bottom-8">
+                                <h3 class="govuk-heading-m govuk-!-margin-bottom-4 hsm-heading-1"><span class="govuk-visually-hidden">Option 3:</span>Ground Source Heat Pump</h3>
+                                @if (Model.EohResult.GshpSuitable == (ushort)Enums.EnumHeatPumpSuitability.Suitable)
+                                {
+                                    <strong class="govuk-tag govuk-tag--green govuk-!-margin-bottom-4">May be an option for your home</strong>
+                                }
+                                else if (Model.EohResult.GshpSuitable == (ushort)Enums.EnumHeatPumpSuitability.NotSuitable)
+                                {
+                                    <strong class="govuk-tag govuk-tag--red govuk-!-margin-bottom-4">Not an option for your home</strong>
+                                }
+                                <p class="govuk-body govuk-!-margin-bottom-4">A Ground Source Heat Pump uses geothermal heat from the ground and an electric compressor system to provide space heating and hot water. </p>
+
+                                <a asp-page="PumpDetails" asp-route-heatpump="@Enums.EnumHeatPumpType.GroundSource.ToString()" role="button" draggable="false" class="govuk-button hsm-margin-bottom-0" data-module="govuk-button" aria-label="Read more about the Ground Source Heat Pump">Read more about this heat pump</a>
+
+                            </div>
+                        </li>
+                        <li>
+                            <div class="hsm-results-page-section-pumps__hybrid govuk-!-margin-bottom-6">
+                                <h3 class="govuk-heading-m govuk-!-margin-bottom-4 hsm-heading-1"><span class="govuk-visually-hidden">Option 4:</span>Hybrid Heat Pump</h3>
+                                @if (Model.EohResult.HhpSuitable == (ushort)Enums.EnumHeatPumpSuitability.Suitable)
+                                {
+                                    <strong class="govuk-tag govuk-tag--green govuk-!-margin-bottom-4">May be an option for your home</strong>
+                                }
+                                else if (Model.EohResult.HhpSuitable == (ushort)Enums.EnumHeatPumpSuitability.NotSuitable)
+                                {
+                                    <strong class="govuk-tag govuk-tag--red govuk-!-margin-bottom-4">Not an option for your home</strong>
+                                }
+                                <p class="govuk-body govuk-!-margin-bottom-4">A Hybrid Heat Pump system combines a Gas Boiler with an Air Source Heat Pump. It automatically switches between them as required to provide space heating and hot water. A Hybrid Heat Pump system can output water at higher temperatures than a standard heat pump meaning it may be used in properties with fewer energy efficiency measures.</p>
+
+                                <a asp-page="PumpDetails" asp-route-heatpump="@Enums.EnumHeatPumpType.Hybrid.ToString()" role="button" draggable="false" class="govuk-button hsm-margin-bottom-0" data-module="govuk-button" aria-label="Read more about the Hybrid Heat Pump">Read more about this heat pump</a>
+
+                            </div>
+                        </li>
+                    </ol>
+                </section>
+            </div>
+
+            @await Html.PartialAsync("_nextStepsSection", Model.NextStepsViewModel)
+
+        </div>
+
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds-from-desktop">
+
+                <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+                <section class="hsm-results-page-section hsm-results-page-section-case-studies govuk-!-margin-bottom-6">
+                    <h2 class="govuk-heading-l govuk-!-margin-bottom-6 hsm-heading-1">Heat Pump Case Studies </h2>
+                    <p class="govuk-body govuk-!-margin-bottom-3">To understand more about the potential disruption caused by a heat pump installation and the experience of living with a heat pump, read the Electrification of Heat Demonstration Project Case Studies. Note that this is an external website link which will open a separate tab. </p>
+                    <a href="https://es.catapult.org.uk/case-study/electrification-of-heat-case-studies-on-heat-pump-experiences/" class="govuk-link govuk-body" rel="noreferrer noopener" target="_blank">View Case Studies</a>
+
+                    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+                </section>
+
+                <section class="hsm-results-page-section hsm-results-page-section-system-options govuk-!-margin-bottom-5">
+                    <h2 class="govuk-heading-l govuk-!-margin-bottom-6 hsm-heading-1">Home Upgrades and Additional System Options</h2>
+                    <p class="govuk-body govuk-!-margin-bottom-3">Home Upgrades may be necessary to increase the energy efficiency of your home and enhance your heat pump operation. In addition, it may be possible to enhance your heat pump operation, improve thermal comfort and further reduce your carbon emissions by installing system enhancements. </p>
+
+                    <a href="UpgradesOptions" class="govuk-link govuk-body">Read More</a>
+
+                    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+                </section>
+
+                <section class="hsm-results-page-section hsm-results-page-section-industry-bodies govuk-!-margin-bottom-6">
+                    <h2 class="govuk-heading-l govuk-!-margin-bottom-6 hsm-heading-1">Industry Bodies</h2>
+                    <p class="govuk-body govuk-!-margin-bottom-3">
+                        Various UK trade associations and industry bodies exist for the heat pump sector. These provide representation for the manufacturers, distributors and installers of heat pumps and also provide information for the public on heat pumps.
+                    </p>
+                    <p class="govuk-body govuk-!-margin-bottom-3"><span role="text">To find out more about these bodies, use the hyperlinks below.<span class="govuk-visually-hidden"> The following links open in a new tab.</span></span></p>
+
+                    <ul class="govuk-list">
+                        <li>
+                            <a href="@Model.HeatPumpAssociationUrl" class="govuk-link" rel="noreferrer noopener" target="_blank">Heat Pump Association</a>
+                        </li>
+                        <li>
+                            <a href="@Model.GroundSourcePumpAssociationUrl" class="govuk-link" rel="noreferrer noopener" target="_blank">Ground Source Heat Pump Association</a>
+                        </li>
+                        <li>
+                            <a href="@Model.HeatPumpFederationUrl" class="govuk-link" rel="noreferrer noopener" target="_blank">Heat Pump Federation</a>
+                        </li>
+                    </ul>
+
+                    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+                </section>
+
+                <div>
+                    <h2 class="govuk-heading-l govuk-!-margin-bottom-6 hsm-heading-1">Next Steps</h2>
+                    <p class="govuk-body">If you have considered your results and would like to further explore your heat pump options, follow the <a href="#next-steps" class="govuk-link govuk-body govuk-link--no-visited-state">Next Steps</a><span class="hsm-hidden-tablet"> on the top right-hand side of this page.</span><span class="hsm-hidden-desktop"> above.</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+}

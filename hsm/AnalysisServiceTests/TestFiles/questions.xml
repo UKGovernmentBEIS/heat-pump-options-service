@@ -1,0 +1,607 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hsm:inputs xmlns:hsm="http://oxfordcc.co.uk/hsm-inputs" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://oxfordcc.co.uk/hsm-inputs hsm-inputs.xsd ">
+  <hsm:house-type optional="true" question="What type of home do you have?" bctext="House Type">
+    <hsm:answer key="detached" dbencoding="1">
+      <hsm:usertext>Detached</hsm:usertext>
+      <hsm:certificate-match epc-key="built-form" match-type="exact">
+        <hsm:epc-text>Detached</hsm:epc-text>
+      </hsm:certificate-match>
+      <hsm:certificate-match epc-key="property-type" match-type="exact">
+        <hsm:epc-text>House</hsm:epc-text>
+        <hsm:epc-text>Bungalow</hsm:epc-text>
+      </hsm:certificate-match>
+      <hsm:description>A house that is not joined to any other house.</hsm:description>
+    </hsm:answer>
+    <hsm:answer key="semidetached" dbencoding="2">
+      <hsm:usertext>Semi-Detached</hsm:usertext>
+      <hsm:certificate-match epc-key="built-form" match-type="exact">
+        <hsm:epc-text>Semi-Detached</hsm:epc-text>
+      </hsm:certificate-match>
+      <hsm:certificate-match epc-key="property-type" match-type="exact">
+        <hsm:epc-text>House</hsm:epc-text>
+        <hsm:epc-text>Bungalow</hsm:epc-text>
+      </hsm:certificate-match>
+      <hsm:description>A house that is joined to another house on one side by a shared wall.</hsm:description>
+    </hsm:answer>
+    <hsm:answer key="midterrace" dbencoding="3">
+      <hsm:usertext>Mid-Terrace</hsm:usertext>
+      <hsm:certificate-match epc-key="built-form" match-type="exact">
+        <hsm:epc-text>Mid-Terrace</hsm:epc-text>
+        <hsm:epc-text>Enclosed Mid-Terrace</hsm:epc-text>
+      </hsm:certificate-match>
+      <hsm:certificate-match epc-key="property-type" match-type="exact">
+        <hsm:epc-text>House</hsm:epc-text>
+        <hsm:epc-text>Bungalow</hsm:epc-text>
+      </hsm:certificate-match>
+      <hsm:description>A house that is attached to other properties on both sides.</hsm:description>
+    </hsm:answer>
+    <hsm:answer key="flatapartment" dbencoding="4">
+      <hsm:usertext>Flat / Apartment</hsm:usertext>
+      <hsm:certificate-match epc-key="property-type" match-type="exact">
+        <hsm:epc-text>Flat</hsm:epc-text>
+      </hsm:certificate-match>
+      <hsm:description>A self-contained housing unit that is part of a larger building, generally on a single storey.</hsm:description>
+    </hsm:answer>
+    <hsm:answer key="parkhome" dbencoding="5">
+      <hsm:usertext>Park Home</hsm:usertext>
+      <hsm:certificate-match epc-key="property-type" match-type="exact">
+        <hsm:epc-text>Park Home</hsm:epc-text>
+      </hsm:certificate-match>
+      <hsm:description>A pre-fabricated mobile building occupied as a permanent home, located with others in a dedicated area of land.</hsm:description>
+    </hsm:answer>
+    <hsm:answer key="maisonette" dbencoding="4">
+      <hsm:usertext>Maisonette</hsm:usertext>
+      <hsm:certificate-match epc-key="property-type" match-type="exact">
+	    <hsm:epc-text>Maisonette</hsm:epc-text>
+      </hsm:certificate-match>
+      <hsm:description>A self-contained housing unit that is part of a larger building, generally on two storeys.</hsm:description>
+    </hsm:answer>
+    <hsm:explanation>We are asking this question to allow us to provide more accurate information about your energy efficiency. For example, terraced houses lose less heat through their side walls.</hsm:explanation>
+  </hsm:house-type>
+  <hsm:wall-type optional="true" question="What is the main type of external wall construction in your home?" bctext="Wall Type">
+    <hsm:answer key="soliduninsulated" dbencoding="1">
+      <hsm:usertext>Solid - uninsulated</hsm:usertext>
+      <hsm:certificate-match epc-key="walls-description" match-type="exact">
+        <hsm:epc-text>Solid brick, as built, no insulation (assumed)</hsm:epc-text>
+        <hsm:epc-text>Solid brick, as built, partial insulation (assumed)</hsm:epc-text>
+      </hsm:certificate-match>
+      <hsm:description>A single layer of solid brickwork, blockwork or stone, often with a plasterboard inner layer. With no insulation on the inside or outside.</hsm:description>
+    </hsm:answer>
+    <hsm:answer key="solidinsulated" dbencoding="2">
+      <hsm:usertext>Solid - insulated</hsm:usertext>
+      <hsm:certificate-match epc-key="walls-description" match-type="exact">
+        <hsm:epc-text>Solid brick, with internal insulation</hsm:epc-text>
+        <hsm:epc-text>Solid brick, as built, insulated (assumed)</hsm:epc-text>
+        <hsm:epc-text>Solid brick, with external insulation</hsm:epc-text>
+      </hsm:certificate-match>
+      <hsm:description>A single layer of solid brickwork, blockwork or stone, often with a plasterboard inner layer. With insulation on either the inside or outside.</hsm:description>
+    </hsm:answer>
+    <hsm:answer key="cavityunfilled" dbencoding="3">
+      <hsm:usertext>Cavity - unfilled</hsm:usertext>
+      <hsm:certificate-match epc-key="walls-description" match-type="exact">
+        <hsm:epc-text>Cavity wall, as built, no insulation (assumed)</hsm:epc-text>
+        <hsm:epc-text>Cavity wall,</hsm:epc-text>
+        <hsm:epc-text>Cavity wall, no insulation (assumed)</hsm:epc-text>
+      </hsm:certificate-match>
+      <hsm:description>Two layers of solid brickwork, blockwork or stone separated by a hollow centre (cavity) which has not been filled with insulation.</hsm:description>
+    </hsm:answer>
+    <hsm:answer key="cavityfilled" dbencoding="4">
+      <hsm:usertext>Cavity - filled</hsm:usertext>
+      <hsm:certificate-match epc-key="walls-description" match-type="exact">
+        <hsm:epc-text>Cavity wall, as built, insulated (assumed)</hsm:epc-text>
+        <hsm:epc-text>Cavity wall, filled cavity</hsm:epc-text>
+        <hsm:epc-text>Cavity wall, filled cavity and external insulation</hsm:epc-text>
+        <hsm:epc-text>Cavity wall, filled cavity and internal insulation</hsm:epc-text>
+        <hsm:epc-text>Cavity wall, insulated (assumed)</hsm:epc-text>
+        <hsm:epc-text>Cavity wall, partial insulation (assumed)</hsm:epc-text>
+        <hsm:epc-text>Cavity wall, with external insulation</hsm:epc-text>
+        <hsm:epc-text>Cavity wall, with internal insulation</hsm:epc-text>
+        <hsm:epc-text>Cob, filled cavity</hsm:epc-text>
+        <hsm:epc-text>Cob, filled cavity and internal insulation</hsm:epc-text>
+        <hsm:epc-text>Granite or whin, filled cavity</hsm:epc-text>
+        <hsm:epc-text>Granite or whinstone, filled cavity</hsm:epc-text>
+        <hsm:epc-text>Sandstone, filled cavity</hsm:epc-text>
+        <hsm:epc-text>Solid brick, filled cavity</hsm:epc-text>
+        <hsm:epc-text>System built, filled cavity</hsm:epc-text>
+        <hsm:epc-text>System built, filled cavity and external insulation</hsm:epc-text>
+        <hsm:epc-text>System built, filled cavity and internal insulation</hsm:epc-text>
+        <hsm:epc-text>Timber frame, filled cavity</hsm:epc-text>
+        <hsm:epc-text>Timber frame, filled cavity and external insulation</hsm:epc-text>
+        <hsm:epc-text>Timber frame, filled cavity and internal insulation</hsm:epc-text>
+      </hsm:certificate-match>
+      <hsm:description>Two layers of solid brickwork, blockwork or stone separated by a cavity which has been filled with insulation.</hsm:description>
+    </hsm:answer>
+    <hsm:answer key="dont-know" dbencoding="0">
+      <hsm:usertext>Don't Know</hsm:usertext>
+      <hsm:description/>
+    </hsm:answer>
+    <hsm:explanation>The type of walls that you have make a large difference to your energy efficiency and how much heating you require. 
+			If your home has more than one external wall construction type, then please choose the majority. If you don’t know then we will estimate the external wall type based on the age of your home.
+		</hsm:explanation>
+  </hsm:wall-type>
+  <hsm:house-age optional="true" question="Approximately when was your home built?" bctext="House Age">
+    <hsm:answer key="pre-1900" dbencoding="1">
+      <hsm:usertext>Before 1900</hsm:usertext>
+      <hsm:certificate-match epc-key="construction-age-band" match-type="exact">
+        <hsm:epc-text>England and Wales: before 1900</hsm:epc-text>
+        <hsm:epc-text>1800</hsm:epc-text>
+        <hsm:epc-text>1820</hsm:epc-text>
+        <hsm:epc-text>1849</hsm:epc-text>
+        <hsm:epc-text>1850</hsm:epc-text>
+        <hsm:epc-text>1876</hsm:epc-text>
+        <hsm:epc-text>1880</hsm:epc-text>
+        <hsm:epc-text>1889</hsm:epc-text>
+        <hsm:epc-text>1890</hsm:epc-text>
+      </hsm:certificate-match>
+      <hsm:description/>
+    </hsm:answer>
+    <hsm:answer key="1900-1929" dbencoding="2">
+      <hsm:usertext>1900 – 1929</hsm:usertext>
+      <hsm:certificate-match epc-key="construction-age-band" match-type="exact">
+        <hsm:epc-text>England and Wales: 1900-1929</hsm:epc-text>
+        <hsm:epc-text>1900</hsm:epc-text>
+        <hsm:epc-text>1902</hsm:epc-text>
+        <hsm:epc-text>1910</hsm:epc-text>
+        <hsm:epc-text>1920</hsm:epc-text>
+        <hsm:epc-text>1929</hsm:epc-text>
+      </hsm:certificate-match>
+      <hsm:description/>
+    </hsm:answer>
+    <hsm:answer key="1930-1949" dbencoding="3">
+      <hsm:usertext>1930 – 1949</hsm:usertext>
+      <hsm:certificate-match epc-key="construction-age-band" match-type="exact">
+        <hsm:epc-text>England and Wales: 1930-1949</hsm:epc-text>
+        <hsm:epc-text>1930</hsm:epc-text>
+        <hsm:epc-text>1935</hsm:epc-text>
+        <hsm:epc-text>1940</hsm:epc-text>
+      </hsm:certificate-match>
+      <hsm:description/>
+    </hsm:answer>
+    <hsm:answer key="1950-1966" dbencoding="4">
+      <hsm:usertext>1950 – 1966</hsm:usertext>
+      <hsm:certificate-match epc-key="construction-age-band" match-type="exact">
+        <hsm:epc-text>England and Wales: 1950-1966</hsm:epc-text>
+        <hsm:epc-text>1950</hsm:epc-text>
+        <hsm:epc-text>1960</hsm:epc-text>
+        <hsm:epc-text>1965</hsm:epc-text>
+      </hsm:certificate-match>
+      <hsm:description/>
+    </hsm:answer>
+    <hsm:answer key="1967-1975" dbencoding="5">
+      <hsm:usertext>1967 – 1975</hsm:usertext>
+      <hsm:certificate-match epc-key="construction-age-band" match-type="exact">
+        <hsm:epc-text>England and Wales: 1967-1975</hsm:epc-text>
+        <hsm:epc-text>1969</hsm:epc-text>
+        <hsm:epc-text>1970</hsm:epc-text>		
+      </hsm:certificate-match>
+      <hsm:description/>
+    </hsm:answer>
+    <hsm:answer key="1976-1982" dbencoding="6">
+      <hsm:usertext>1976 – 1982</hsm:usertext>
+      <hsm:certificate-match epc-key="construction-age-band" match-type="exact">
+        <hsm:epc-text>England and Wales: 1976-1982</hsm:epc-text>
+        <hsm:epc-text>1980</hsm:epc-text>		
+      </hsm:certificate-match>
+      <hsm:description/>
+    </hsm:answer>
+    <hsm:answer key="1983-1990" dbencoding="7">
+      <hsm:usertext>1983 – 1990</hsm:usertext>
+      <hsm:certificate-match epc-key="construction-age-band" match-type="exact">
+        <hsm:epc-text>England and Wales: 1983-1990</hsm:epc-text>
+        <hsm:epc-text>1983</hsm:epc-text>
+        <hsm:epc-text>1985</hsm:epc-text>
+        <hsm:epc-text>1988</hsm:epc-text>		
+      </hsm:certificate-match>
+      <hsm:description/>
+    </hsm:answer>
+    <hsm:answer key="1991-1995" dbencoding="8">
+      <hsm:usertext>1991 – 1995</hsm:usertext>
+      <hsm:certificate-match epc-key="construction-age-band" match-type="exact">
+        <hsm:epc-text>England and Wales: 1991-1995</hsm:epc-text>
+        <hsm:epc-text>1992</hsm:epc-text>
+        <hsm:epc-text>1995</hsm:epc-text>		
+      </hsm:certificate-match>
+      <hsm:description/>
+    </hsm:answer>
+    <hsm:answer key="1996-2002" dbencoding="9">
+      <hsm:usertext>1996 – 2002</hsm:usertext>
+      <hsm:certificate-match epc-key="construction-age-band" match-type="exact">
+        <hsm:epc-text>England and Wales: 1996-2002</hsm:epc-text>
+        <hsm:epc-text>2000</hsm:epc-text>
+        <hsm:epc-text>2002</hsm:epc-text>		
+      </hsm:certificate-match>
+      <hsm:description/>
+    </hsm:answer>
+    <hsm:answer key="2003-2006" dbencoding="10">
+      <hsm:usertext>2003 – 2006</hsm:usertext>
+      <hsm:certificate-match epc-key="construction-age-band" match-type="exact">
+        <hsm:epc-text>England and Wales: 2003-2006</hsm:epc-text>
+        <hsm:epc-text>2004</hsm:epc-text>
+        <hsm:epc-text>2005</hsm:epc-text>
+        <hsm:epc-text>2006</hsm:epc-text>		
+      </hsm:certificate-match>
+      <hsm:description/>
+    </hsm:answer>
+    <hsm:answer key="2007-2011" dbencoding="11">
+      <hsm:usertext>2007 – 2011</hsm:usertext>
+      <hsm:certificate-match epc-key="construction-age-band" match-type="exact">
+        <hsm:epc-text>England and Wales: 2007-2011</hsm:epc-text>
+		<hsm:epc-text>2007</hsm:epc-text>
+        <hsm:epc-text>2007</hsm:epc-text>
+        <hsm:epc-text>2008</hsm:epc-text>
+        <hsm:epc-text>2009</hsm:epc-text>
+        <hsm:epc-text>2010</hsm:epc-text>
+        <hsm:epc-text>2011</hsm:epc-text>
+      </hsm:certificate-match>
+      <hsm:description/>
+    </hsm:answer>
+    <hsm:answer key="2012-onwards" dbencoding="12">
+      <hsm:usertext>2012+</hsm:usertext>
+      <hsm:certificate-match epc-key="construction-age-band" match-type="exact">
+        <hsm:epc-text>England and Wales: 2012 onwards</hsm:epc-text>
+        <hsm:epc-text>2012</hsm:epc-text>
+        <hsm:epc-text>2013</hsm:epc-text>
+        <hsm:epc-text>2014</hsm:epc-text>
+        <hsm:epc-text>2015</hsm:epc-text>
+        <hsm:epc-text>2016</hsm:epc-text>
+        <hsm:epc-text>2017</hsm:epc-text>
+        <hsm:epc-text>2018</hsm:epc-text>
+        <hsm:epc-text>2019</hsm:epc-text>
+        <hsm:epc-text>2020</hsm:epc-text>
+        <hsm:epc-text>2021</hsm:epc-text>
+        <hsm:epc-text>2022</hsm:epc-text>
+        <hsm:epc-text>2023</hsm:epc-text>
+        <hsm:epc-text>2024</hsm:epc-text>
+        <hsm:epc-text>2031</hsm:epc-text>
+        <hsm:epc-text>2033</hsm:epc-text>
+        <hsm:epc-text>2035</hsm:epc-text>
+        <hsm:epc-text>2081</hsm:epc-text>
+      </hsm:certificate-match>
+      <hsm:description/>
+    </hsm:answer>
+    <hsm:explanation>We can infer a lot of information from the age of your property, based on the building regulations at the time. If you do not know when your home was built, then please make your best estimate.</hsm:explanation>
+  </hsm:house-age>
+  <hsm:house-size-option1 optional="true" question="What is the approximate floor area of your home?" bctext="House Size">
+    <hsm:answer key="lessthan-50" dbencoding="1">
+      <hsm:usertext>&lt;50</hsm:usertext>
+      <hsm:certificate-match epc-key="total-floor-area" match-type="integer-in-range">
+        <hsm:epc-text>&lt;50</hsm:epc-text>
+      </hsm:certificate-match>
+      <hsm:description/>
+    </hsm:answer>
+    <hsm:answer key="50-70" dbencoding="2">
+      <hsm:usertext>50 – 70</hsm:usertext>
+      <hsm:certificate-match epc-key="total-floor-area" match-type="integer-in-range">
+        <hsm:epc-text>50-70</hsm:epc-text>
+      </hsm:certificate-match>
+      <hsm:description/>
+    </hsm:answer>
+    <hsm:answer key="70-90" dbencoding="3">
+      <hsm:usertext>70 – 90</hsm:usertext>
+      <hsm:certificate-match epc-key="total-floor-area" match-type="integer-in-range">
+        <hsm:epc-text>70-90</hsm:epc-text>
+      </hsm:certificate-match>
+      <hsm:description/>
+    </hsm:answer>
+    <hsm:answer key="90-110" dbencoding="4">
+      <hsm:usertext>90 – 110</hsm:usertext>
+      <hsm:certificate-match epc-key="total-floor-area" match-type="integer-in-range">
+        <hsm:epc-text>90-110</hsm:epc-text>
+      </hsm:certificate-match>
+      <hsm:description/>
+    </hsm:answer>
+    <hsm:answer key="110-200" dbencoding="5">
+      <hsm:usertext>110 – 200</hsm:usertext>
+      <hsm:certificate-match epc-key="total-floor-area" match-type="integer-in-range">
+        <hsm:epc-text>110-200</hsm:epc-text>
+      </hsm:certificate-match>
+      <hsm:description/>
+    </hsm:answer>
+    <hsm:answer key="200-300" dbencoding="6">
+      <hsm:usertext>200 – 300</hsm:usertext>
+      <hsm:certificate-match epc-key="total-floor-area" match-type="integer-in-range">
+        <hsm:epc-text>200-300</hsm:epc-text>
+      </hsm:certificate-match>
+      <hsm:description/>
+    </hsm:answer>
+    <hsm:answer key="300-400" dbencoding="7">
+      <hsm:usertext>300 – 400</hsm:usertext>
+      <hsm:certificate-match epc-key="total-floor-area" match-type="integer-in-range">
+        <hsm:epc-text>300-400</hsm:epc-text>
+      </hsm:certificate-match>
+      <hsm:description/>
+    </hsm:answer>
+    <hsm:explanation>Knowing your floor area helps us to calculate how much heating your home requires, which influences what type and size of heat pump your home may need.|The total useful floor area is the total of all enclosed spaces measured to the internal face of the external walls.</hsm:explanation>
+  </hsm:house-size-option1>
+  <hsm:house-size-option2 optional="true" question="How many bedrooms does your home have?" bctext="Number of bedrooms">
+    <hsm:answer key="one" dbencoding="0">
+      <hsm:usertext>1</hsm:usertext>
+      <hsm:description/>
+    </hsm:answer>
+    <hsm:answer key="two" dbencoding="0">
+      <hsm:usertext>2</hsm:usertext>
+      <hsm:description/>
+    </hsm:answer>
+    <hsm:answer key="three" dbencoding="0">
+      <hsm:usertext>3</hsm:usertext>
+      <hsm:description/>
+    </hsm:answer>
+    <hsm:answer key="four" dbencoding="0">
+      <hsm:usertext>4</hsm:usertext>
+      <hsm:description/>
+    </hsm:answer>
+    <hsm:answer key="five-plus" dbencoding="0">
+      <hsm:usertext>5+</hsm:usertext>
+      <hsm:description/>
+    </hsm:answer>
+    <hsm:explanation>We will use this information to estimate the size of your property. This will influence what type and size of heat pump your home may need.</hsm:explanation>
+  </hsm:house-size-option2>
+  <hsm:roof-type optional="true" question="What type of roof does your property have?" bctext="Roof type">
+    <hsm:answer key="loft-uninsulated" dbencoding="1">
+      <hsm:usertext>Loft - uninsulated</hsm:usertext>
+      <hsm:certificate-match epc-key="roof-description" match-type="exact">        
+        <hsm:epc-text>Pitched, no insulation</hsm:epc-text>
+        <hsm:epc-text>Pitched, no insulation (assumed)</hsm:epc-text>
+        <hsm:epc-text>Pitched, no insulation(assumed)</hsm:epc-text>        
+      </hsm:certificate-match>
+      <hsm:description>A loft with no heated rooms in the loft space. Containing no insulation.</hsm:description>
+    </hsm:answer>
+    <hsm:answer key="loft-partially-insulated-or-unknown-amount-of-insulation" dbencoding="1">
+      <hsm:usertext>Loft - partial or unknown amount of insulation</hsm:usertext>
+      <hsm:certificate-match epc-key="roof-description" match-type="exact">
+        <hsm:epc-text>Loft - partially insulated or unknown amount of insulation</hsm:epc-text>       
+        <hsm:epc-text>Pitched, limited insulation</hsm:epc-text>
+        <hsm:epc-text>Pitched, limited insulation (assumed)</hsm:epc-text>
+      </hsm:certificate-match>
+      <hsm:description>A loft with no heated rooms in the loft space. Containing a small or unknown amount of insulation.</hsm:description>
+    </hsm:answer>
+    <hsm:answer key="loft-insulated" dbencoding="4">
+      <hsm:usertext>Loft - insulated</hsm:usertext>
+      <hsm:certificate-match epc-key="roof-description" match-type="exact">
+        <hsm:epc-text>Pitched, insulated</hsm:epc-text>
+        <hsm:epc-text>Pitched, insulated (assumed)</hsm:epc-text>
+        <hsm:epc-text>Pitched, insulated at rafters</hsm:epc-text>
+      </hsm:certificate-match>
+      <hsm:description>A loft with no heated rooms in the loft space. Containing insulation.</hsm:description>
+    </hsm:answer>
+    <hsm:answer key="flat-roof-uninsulated" dbencoding="2">
+      <hsm:usertext>A flat roof - uninsulated</hsm:usertext>
+      <hsm:certificate-match epc-key="roof-description" match-type="exact">
+        <hsm:epc-text>Flat, limited insulation</hsm:epc-text>
+        <hsm:epc-text>Flat, limited insulation (assumed)</hsm:epc-text>
+        <hsm:epc-text>Flat, no insulation</hsm:epc-text>
+        <hsm:epc-text>Flat, no insulation (assumed)</hsm:epc-text>
+      </hsm:certificate-match>
+      <hsm:description>A flat roof which also acts as the ceiling of the top floor. Containing no insulation.</hsm:description>
+    </hsm:answer>
+    <hsm:answer key="flat-roof-insulated" dbencoding="2">
+      <hsm:usertext>A flat roof - insulated</hsm:usertext>
+      <hsm:certificate-match epc-key="roof-description" match-type="exact">
+        <hsm:epc-text>Flat, insulated</hsm:epc-text>
+        <hsm:epc-text>Flat, insulated  (assumed)</hsm:epc-text>
+        <hsm:epc-text>Flat, insulated (assumed)</hsm:epc-text>		
+      </hsm:certificate-match>
+      <hsm:description>A flat roof which also acts as the ceiling of the top floor. Containing insulation.</hsm:description>
+    </hsm:answer>
+    <hsm:answer key="loft-conversion-uninsulated" dbencoding="3">
+      <hsm:usertext>Loft conversion - uninsulated</hsm:usertext>
+      <hsm:certificate-match epc-key="roof-description" match-type="exact">
+        <hsm:epc-text>Roof room(s), no insulation</hsm:epc-text>
+        <hsm:epc-text>Roof room(s), no insulation (assumed)</hsm:epc-text>
+        <hsm:epc-text>Roof room(s), no insulation(assumed)</hsm:epc-text>
+      </hsm:certificate-match>
+      <hsm:description>A loft space which has been converted into a heated room. Containing no insulation.</hsm:description>
+    </hsm:answer>
+    <hsm:answer key="loft-conversion-insulated" dbencoding="4">
+      <hsm:usertext>Loft conversion - insulated</hsm:usertext>
+      <hsm:certificate-match epc-key="roof-description" match-type="exact">
+        <hsm:epc-text>Roof room(s),  loft insulation</hsm:epc-text>
+        <hsm:epc-text>Roof room(s), ceiling insulated</hsm:epc-text>
+        <hsm:epc-text>Roof room(s), insulated</hsm:epc-text>
+        <hsm:epc-text>Roof room(s), insulated (assumed)</hsm:epc-text>
+        <hsm:epc-text>Roof room(s), insulated at rafters</hsm:epc-text>
+        <hsm:epc-text>Roof room(s), limited insulation</hsm:epc-text>
+        <hsm:epc-text>Roof room(s), limited insulation (assumed)</hsm:epc-text>
+      </hsm:certificate-match>
+      <hsm:description>A loft space which has been converted into a heated room. Containing insulation.</hsm:description>
+    </hsm:answer>
+    <hsm:answer key="no-roof" dbencoding="4">
+      <hsm:usertext>No roof (ground or mid-floor flat)</hsm:usertext>
+      <hsm:description>If your home is a ground or mid-floor flat, you do not have an external roof.</hsm:description>
+    </hsm:answer>
+    <hsm:explanation>We will use this information to estimate the home upgrade requirements to enable a heat pump installation. Heat pumps work most effectively when loft or roof insulation is installed.</hsm:explanation>
+  </hsm:roof-type>
+  <hsm:glazing optional="true" question="What is the main type of window glazing in your home?" bctext="Glazing">
+    <hsm:answer key="single" dbencoding="1">
+      <hsm:usertext>Single</hsm:usertext>
+      <hsm:certificate-match epc-key="windows-description" match-type="exact">
+        <hsm:epc-text>Partial Single glazing</hsm:epc-text>
+        <hsm:epc-text>Single and multiple glazing</hsm:epc-text>
+        <hsm:epc-text>Single glazed</hsm:epc-text>
+        <hsm:epc-text>Single glazedSingle glazing</hsm:epc-text>
+        <hsm:epc-text>Single glazeddouble glazing</hsm:epc-text>
+        <hsm:epc-text>Single glazedsecondary glazing</hsm:epc-text>
+        <hsm:epc-text>Single glazedtriple glazing</hsm:epc-text>
+        <hsm:epc-text>Single glazed|Gwydrau sengl</hsm:epc-text>
+        <hsm:epc-text>Some Single glazing</hsm:epc-text>
+        <hsm:epc-text>Gwydrau sengl</hsm:epc-text>
+        <hsm:epc-text>Gwydrau dwbl gan mwyaf</hsm:epc-text>
+        <hsm:epc-text>Mostly  secondary glazing</hsm:epc-text>
+        <hsm:epc-text>Gwydrau triphlyg llawn</hsm:epc-text>
+      </hsm:certificate-match>
+      <hsm:description>A window containing one layer of glass.</hsm:description>
+    </hsm:answer>
+    <hsm:answer key="double" dbencoding="2">
+      <hsm:usertext>Double</hsm:usertext>
+      <hsm:certificate-match epc-key="windows-description" match-type="exact">
+        <hsm:epc-text>Full secondary glazing</hsm:epc-text>
+        <hsm:epc-text>Secondary glazing</hsm:epc-text>
+        <hsm:epc-text>High performance glazing</hsm:epc-text>
+        <hsm:epc-text>Gwydrau dwbl llawn</hsm:epc-text>
+        <hsm:epc-text>Fully secondary glazed</hsm:epc-text>
+        <hsm:epc-text>Fully secondary glazing</hsm:epc-text>
+        <hsm:epc-text>Mostly secondary glazing</hsm:epc-text>
+        <hsm:epc-text>Mostly multiple glazing</hsm:epc-text>
+        <hsm:epc-text>Multiple glazing throughout</hsm:epc-text>
+        <hsm:epc-text>Multiple glazing throughout|Gwydrau lluosog ym mhobman</hsm:epc-text>
+        <hsm:epc-text>Fully double glazed</hsm:epc-text>
+        <hsm:epc-text>Fully double glazeddouble glazing</hsm:epc-text>
+        <hsm:epc-text>Fully double glazed|Gwydrau dwbl llawn</hsm:epc-text>
+        <hsm:epc-text>Fully double glazing</hsm:epc-text>
+        <hsm:epc-text>Mostly  double glazing</hsm:epc-text>
+        <hsm:epc-text>Mostly double glazing</hsm:epc-text>
+        <hsm:epc-text>Multiple glazing throughout double glazing</hsm:epc-text>
+        <hsm:epc-text>Partial double glazed</hsm:epc-text>
+        <hsm:epc-text>Partial double glazing</hsm:epc-text>
+        <hsm:epc-text>Partial double glazingdouble glazing</hsm:epc-text>
+        <hsm:epc-text>Partial double glazing|Gwydrau dwbl rhannol</hsm:epc-text>
+        <hsm:epc-text>Partial multiple glazingdouble glazing</hsm:epc-text>
+        <hsm:epc-text>Single glazeddouble glazing</hsm:epc-text>
+        <hsm:epc-text>Some  double glazing</hsm:epc-text>
+        <hsm:epc-text>Some double glazing</hsm:epc-text>
+        <hsm:epc-text>Some multiple glazingdouble glazing</hsm:epc-text>
+        <hsm:epc-text>double glazing</hsm:epc-text>
+      </hsm:certificate-match>
+      <hsm:description>A window containing two layers of glass with a gap between them. Most windows with plastic frames are this type.</hsm:description>
+    </hsm:answer>
+    <hsm:answer key="triple" dbencoding="2">
+      <hsm:usertext>Triple</hsm:usertext>
+      <hsm:certificate-match epc-key="windows-description" match-type="exact">
+        <hsm:epc-text>High performance glazing</hsm:epc-text>
+        <hsm:epc-text>Multiple glazing throughout</hsm:epc-text>
+        <hsm:epc-text>Mostly multiple glazing</hsm:epc-text>
+        <hsm:epc-text>High performance glazing|Ffenestri perfformiad uchel</hsm:epc-text>
+        <hsm:epc-text>Multiple glazing throughout|Gwydrau lluosog ym mhobman</hsm:epc-text>
+        <hsm:epc-text>Mostly  multiple glazing</hsm:epc-text>
+        <hsm:epc-text>Ffenestri perfformiad uchel</hsm:epc-text>
+        <hsm:epc-text>Gwydrau eilaidd llawn</hsm:epc-text>
+        <hsm:epc-text>Gwydrau triphlyg gan mwyaf</hsm:epc-text>
+        <hsm:epc-text>Gwydrau lluosog ym mhobman</hsm:epc-text>
+        <hsm:epc-text>Full triple glazed</hsm:epc-text>
+        <hsm:epc-text>Full triple glazing</hsm:epc-text>
+        <hsm:epc-text>Fully Triple glazed</hsm:epc-text>
+        <hsm:epc-text>Fully triple glazed</hsm:epc-text>
+        <hsm:epc-text>Fully triple glazed|Gwydrau triphlyg llawn</hsm:epc-text>
+        <hsm:epc-text>Fully triple glazing</hsm:epc-text>
+        <hsm:epc-text>Mostly  triple glazing</hsm:epc-text>
+        <hsm:epc-text>Mostly triple glazing</hsm:epc-text>
+        <hsm:epc-text>Multiple glazing throughout triple glazing</hsm:epc-text>
+        <hsm:epc-text>Partial triple glazing</hsm:epc-text>
+        <hsm:epc-text>Single glazedtriple glazing</hsm:epc-text>
+        <hsm:epc-text>Some  triple glazing</hsm:epc-text>
+        <hsm:epc-text>Some triple glazing</hsm:epc-text>		
+      </hsm:certificate-match>
+      <hsm:description>A window containing three layers of glass with a gap between them.</hsm:description>
+    </hsm:answer>
+    <hsm:explanation>The type of windows that you have make a large difference to your energy efficiency and how much heating you require.</hsm:explanation>
+  </hsm:glazing>
+  <hsm:gas-supply optional="true" question="Does your home have a mains gas supply?" bctext="Gas Supply">
+    <hsm:answer key="yes" dbencoding="1">
+      <hsm:usertext>Yes</hsm:usertext>
+      <hsm:certificate-match epc-key="mains-gas-flag" match-type="exact">
+        <hsm:epc-text>Y</hsm:epc-text>
+      </hsm:certificate-match>
+      <hsm:description/>
+    </hsm:answer>
+    <hsm:answer key="no" dbencoding="2">
+      <hsm:usertext>No</hsm:usertext>
+      <hsm:certificate-match epc-key="mains-gas-flag" match-type="exact">
+        <hsm:epc-text>N</hsm:epc-text>
+      </hsm:certificate-match>
+      <hsm:description/>
+    </hsm:answer>
+    <hsm:explanation>If you have a gas supply, your home may be suitable for a Hybrid Heat pump installation which combines a gas boiler with an Air Source Heat Pump.</hsm:explanation>
+  </hsm:gas-supply>
+  <hsm:outside-space optional="true" question="Does your property have outdoor space on the ground floor (for example, a garden or communal car park)?" bctext="Outside Space">
+    <hsm:answer key="yes" dbencoding="1">
+      <hsm:usertext>Yes</hsm:usertext>
+      <hsm:description/>
+    </hsm:answer>
+    <hsm:answer key="no" dbencoding="2">
+      <hsm:usertext>No</hsm:usertext>
+      <hsm:description/>
+    </hsm:answer>
+    <hsm:explanation>We will use this information to help understand if installing a particular type of Heat pump called a Ground Source Heat Pump may be an option for your home.</hsm:explanation>
+  </hsm:outside-space>
+  <hsm:current-heating-system optional="true" question="What fuel does your current heating system use?" bctext="Current Heating System">
+    <hsm:answer key="gas" dbencoding="1">
+      <hsm:usertext>Natural Gas</hsm:usertext>
+      <hsm:certificate-match epc-key="main-fuel" match-type="exact">
+        <hsm:epc-text>Gas: mains gas</hsm:epc-text>
+        <hsm:epc-text>mains gas (community)</hsm:epc-text>
+        <hsm:epc-text>mains gas (not community)</hsm:epc-text>
+        <hsm:epc-text>mains gas - this is for backwards compatibility only and should not be used</hsm:epc-text>      </hsm:certificate-match>
+      <hsm:description>Gas supplied through the mains gas network. 80% of UK properties use this fuel type.</hsm:description>
+    </hsm:answer>
+    <hsm:answer key="oil" dbencoding="2">
+      <hsm:usertext>Oil</hsm:usertext>
+      <hsm:certificate-match epc-key="main-fuel" match-type="exact">
+        <hsm:epc-text>Oil: heating oil</hsm:epc-text>
+        <hsm:epc-text>appliances able to use mineral oil or liquid biofuel</hsm:epc-text>
+        <hsm:epc-text>biodiesel from used cooking oil only</hsm:epc-text>
+        <hsm:epc-text>biodiesel from vegetable oil only</hsm:epc-text>
+        <hsm:epc-text>heat from boilers that can use mineral oil or biodiesel (community)</hsm:epc-text>
+        <hsm:epc-text>heat from boilers using biodiesel from any biomass source (community)</hsm:epc-text>
+        <hsm:epc-text>oil (community)</hsm:epc-text>
+        <hsm:epc-text>oil (not community)</hsm:epc-text>
+        <hsm:epc-text>oil - this is for backwards compatibility only and should not be used</hsm:epc-text>
+      </hsm:certificate-match>
+      <hsm:description>Fuel oil usually supplied to a tank in your garden which is burned in a boiler or furnace.</hsm:description>
+    </hsm:answer>
+    <hsm:answer key="lpg" dbencoding="3">
+      <hsm:usertext>LPG</hsm:usertext>
+      <hsm:certificate-match epc-key="main-fuel" match-type="exact">		
+        <hsm:epc-text>Gas: bottled LPG</hsm:epc-text>
+        <hsm:epc-text>Gas: bulk LPG</hsm:epc-text>
+        <hsm:epc-text>LPG (community)</hsm:epc-text>
+        <hsm:epc-text>LPG (not community)</hsm:epc-text>
+        <hsm:epc-text>LPG - this is for backwards compatibility only and should not be used</hsm:epc-text>
+        <hsm:epc-text>LPG special condition</hsm:epc-text>
+        <hsm:epc-text>LPG subject to Special Condition 18</hsm:epc-text>
+        <hsm:epc-text>bottled LPG</hsm:epc-text>		
+      </hsm:certificate-match>
+      <hsm:description>Liquefied petroleum gas supplied in pre-filled metal tanks.</hsm:description>
+    </hsm:answer>
+    <hsm:answer key="electricity" dbencoding="4">
+      <hsm:usertext>Electricity</hsm:usertext>
+      <hsm:certificate-match epc-key="main-fuel" match-type="exact">
+        <hsm:epc-text>Electricity: electricity, unspecified tariff</hsm:epc-text>
+        <hsm:epc-text>electricity (community)</hsm:epc-text>
+        <hsm:epc-text>electricity (not community)</hsm:epc-text>
+        <hsm:epc-text>electricity - this is for backwards compatibility only and should not be used</hsm:epc-text>
+        <hsm:epc-text>unspecified tariff</hsm:epc-text>
+      </hsm:certificate-match>
+      <hsm:description>Direct electric heating such as fixed or portable electric radiators.</hsm:description>
+    </hsm:answer>
+    <hsm:answer key="non-renewable" dbencoding="5">
+      <hsm:usertext>Non-renewable solid fuel (for example, coal)</hsm:usertext>
+      <hsm:certificate-match epc-key="main-fuel" match-type="exact">
+        <hsm:epc-text>Solid fuel: dual fuel appliance (mineral and wood)</hsm:epc-text>
+        <hsm:epc-text>Solid fuel: manufactured smokeless fuel</hsm:epc-text>
+        <hsm:epc-text>Community heating schemes: waste heat from power stations</hsm:epc-text>
+      </hsm:certificate-match>
+      <hsm:description>Fuel, such as coal which is used in a fireplace or boiler.</hsm:description>
+    </hsm:answer>
+    <hsm:answer key="biomass-biogas" dbencoding="6">
+      <hsm:usertext>Biomass / Biogas</hsm:usertext>
+      <hsm:certificate-match epc-key="main-fuel" match-type="exact">
+        <hsm:epc-text>Community heating schemes: heat from boilers - biomass</hsm:epc-text>
+        <hsm:epc-text>Gas: biogas</hsm:epc-text>
+        <hsm:epc-text>appliances able to use mineral oil or liquid biofuel</hsm:epc-text>
+        <hsm:epc-text>biodiesel from any biomass source</hsm:epc-text>
+        <hsm:epc-text>biodiesel from used cooking oil only</hsm:epc-text>
+        <hsm:epc-text>biodiesel from vegetable oil only</hsm:epc-text>
+        <hsm:epc-text>bioethanol</hsm:epc-text>
+        <hsm:epc-text>biogas (community)</hsm:epc-text>
+        <hsm:epc-text>biogas (not community)</hsm:epc-text>
+        <hsm:epc-text>biogas - landfill - this is for backwards compatibility only and should not be used</hsm:epc-text>
+        <hsm:epc-text>biomass (community)</hsm:epc-text>
+        <hsm:epc-text>biomass - this is for backwards compatibility only and should not be used</hsm:epc-text>
+        <hsm:epc-text>heat from boilers that can use mineral oil or biodiesel (community)</hsm:epc-text>
+        <hsm:epc-text>heat from boilers using biodiesel from any biomass source (community)</hsm:epc-text>
+      </hsm:certificate-match>
+      <hsm:description>Biomass such as wood or woodchips or biogas used in a fireplace, woodburning stove or boiler.</hsm:description>
+    </hsm:answer>
+    <hsm:explanation>We will use this information to help estimate the carbon savings possible by changing your heating system to a heat pump.</hsm:explanation>
+  </hsm:current-heating-system>
+</hsm:inputs>

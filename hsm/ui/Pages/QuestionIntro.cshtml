@@ -1,0 +1,36 @@
+@page
+@model OCC.HSM.UI.Pages.QuestionIntroModel
+@{
+    ViewData["Title"] = @Model.ContinueWithEpc ? "Continue using EPC Data" : "Continue without EPC Data";
+    Layout = "~/Pages/Shared/_mainLayout.cshtml";
+}
+
+<div class="hsm-question-intro-page">
+    <div class="govuk-grid-row govuk-!-margin-bottom-8">
+        <div class="govuk-grid-column-two-thirds-from-desktop">
+            <form method="post" novalidate>
+                @if (!Model.ContinueWithEpc)
+                {
+                    <section class="hsm-question-intro-page-section">
+                        <h1 class="govuk-heading-xl govuk-!-margin-bottom-5 hsm-heading-1">Continue without EPC</h1>
+                        <p class="govuk-body govuk-!-margin-bottom-5">You have chosen to continue without the use of Energy Performance Certificate data. </p>
+                        <p class="govuk-body govuk-!-margin-bottom-5">This will not affect the results that are provided to you however, none of the questions on the following pages will be answered automatically. </p>
+                        <p class="govuk-body govuk-!-margin-bottom-5">You will now be asked a series of 9 questions about your home which will help to determine your heat pump options. </p>
+                        <p class="govuk-body govuk-!-margin-bottom-5">After answering the questions, a summary of your answers will appear. At this point, you may change some of the answers or confirm your answers and view the results. </p>
+                    </section>
+                }
+                else @if (Model.IsEpcPresent && Model.ContinueWithEpc)
+               {
+                <section class="hsm-question-intro-page-section">
+                    <h1 class="govuk-heading-xl govuk-!-margin-bottom-5 hsm-heading-1">Continue using EPC data</h1>
+                    <p class="govuk-body govuk-!-margin-bottom-5">Your EPC data will be used to auto-populate the answers to some of our questions and help determine your heat pump options. </p>
+                    <p class="govuk-body govuk-!-margin-bottom-5">You will now be asked the remaining questions about your home. </p>
+                    <p class="govuk-body govuk-!-margin-bottom-5">After answering the questions, a summary of your answers will appear. The summary will include those which have been answered manually and those which have been answered automatically using your EPC data. You may navigate from the summary page to change one or more of your answers prior to obtaining results. </p>
+                </section>
+            }
+                <button class="govuk-button govuk-!-display-block" data-module="govuk-button">Continue</button>
+
+            </form>
+        </div>
+    </div>
+</div>

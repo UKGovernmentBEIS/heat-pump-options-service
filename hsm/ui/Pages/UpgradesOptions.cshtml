@@ -1,0 +1,102 @@
+@page
+ @model OCC.HSM.UI.Pages.UpgradesOptionsModel 
+@{
+    ViewData["Title"] = "Home upgrades & additional system options";
+    Layout = "~/Pages/Shared/_altLayout.cshtml";
+}
+
+<div class="hsm-upgrades-options-page">
+    <div class="govuk-grid-row govuk-!-margin-bottom-8">
+        <div class="govuk-grid-column-two-thirds-from-desktop">
+            <section class="hsm-upgrades-page-section">
+                <h1 class="govuk-heading-xl govuk-!-margin-bottom-5 hsm-heading-1">Potential home upgrades and Additional System Options </h1>
+                <p class="govuk-body govuk-!-margin-bottom-5">Compared to other heating systems, a system incorporating a Heat Pump may need some alterations such as the inclusion of a Thermal Store or larger radiators. In addition, heat pumps work better in more energy efficient homes so thermal insulation and double glazing are important considerations when installing a heat pump. </p>
+                <p class="govuk-body govuk-!-margin-bottom-5">This page lists some common home and heating system upgrades required to enable a heat pump installation as well as some additional system options which may enhance your heat pump operation or provide further operational savings to you as a heat pump owner. </p>
+
+                <p class="govuk-body govuk-!-margin-bottom-5">For more information on these (and other) home upgrades and how they will affect your bills visit <a href="@Model.SimpleEnergyAdviceToolUrl" class="govuk-link" rel="noreferrer noopener" target="_blank">Simple Energy Advice<span class="govuk-visually-hidden">(opens in new tab)</span></a></p>
+
+                <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+            </section>
+
+            <section class="hsm-upgrades-page-section">
+                <h2 class="govuk-heading-l govuk-!-margin-bottom-5 hsm-heading-1">Installing a Thermal Store</h2>
+                <p class="govuk-body govuk-!-margin-bottom-5">Heat pumps do not produce instant hot water, therefore unless you have a hybrid system, you will require a thermal store in your home to support the supply of hot water. You will therefore need to have space for such a store to be installed if you do not have one already. It is estimated that installing a thermal store in your home will cost £2,500 - £3,000.</p>
+                <p class="govuk-body govuk-!-margin-bottom-3">There are two main types you can consider:</p>
+
+                <h3 class="govuk-heading-m govuk-!-margin-bottom-3 hsm-heading-1">Water Tanks</h3>
+                <p class="govuk-body govuk-!-margin-bottom-3">A hot water cylinder stores water heated by the heat pump so that it is ready when you need it.  An immersion heater ensures that the water remains ready for you to use.  If you already have a hot water tank, it may still require replacement with a model specifically designed to integrate well with the heat pump.</p>
+
+                <h3 class="govuk-heading-m govuk-!-margin-bottom-3 hsm-heading-1">Phase Change Material Thermal Stores</h3>
+                <p class="govuk-body govuk-!-margin-bottom-3">An alternative to a water tank is a device called a Phase Change Material (PCM) Thermal Store.  PCM thermal stores can be charged by the heat pump and store heat energy via a chemical process within a specially designed material.  When hot water is required, a chemical process is triggered to release this heat into the water supply.  One advantage of PCM stores is that they are typically much smaller than the equivalent water tank.</p>
+
+                <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+            </section>
+
+            <section class="hsm-upgrades-page-section">
+                <h2 class="govuk-heading-l govuk-!-margin-bottom-5 hsm-heading-1">Replacing Radiators</h2>
+                <p class="govuk-body govuk-!-margin-bottom-5">As heat pumps will generally generate heat at a lower temperature than your existing heating system, your home may benefit from changing some of the radiators to a type designed for low temperature operation. The number of radiators needing to be replaced varies per home and heating system and for around 50%  of properties, no radiator changes are necessary. The cost of radiator replacements will vary based on the number and size of the radiators which need replacing however, a typical cost to replace one radiator is estimated to be around £300.</p>
+
+                <p class="govuk-body govuk-!-margin-bottom-5">If you install a High Temperature Air Source Heat Pump or a Hybrid Heat Pump System, you are less likely to need to replace as many radiators. This is because the higher potential operating temperatures from these systems are more likely to be similar to your current heating system. </p>
+
+                <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+            </section>
+
+            <section class="hsm-upgrades-page-section">
+                <h2 class="govuk-heading-l govuk-!-margin-bottom-5 hsm-heading-1">Wall Insulation</h2>
+                <p class="govuk-body govuk-!-margin-bottom-5">The types of walls which you have make a large difference to your energy efficiency and how much heating you require. If you don’t have it already, your home may benefit from the installation of wall insulation to reduce the energy lost through the walls. For some lower temperature systems, it may be necessary to increase your wall insulation levels to enable effective system operation however this is not always the case. In addition, if you have a higher temperature system (as described above) you may be less likely to require wall insulation to enable effective heat pump operation. </p>
+
+                <p class="govuk-body govuk-!-margin-bottom-5">Regardless of heat pump installation requirements, in general, wall insulation will reduce your heating demand and therefore ongoing energy bills. </p>
+
+                <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+            </section>
+
+            <section class="hsm-upgrades-page-section">
+                <h2 class="govuk-heading-l govuk-!-margin-bottom-5 hsm-heading-1">Loft or Roof Insulation</h2>
+                <p class="govuk-body govuk-!-margin-bottom-5">A large quantity of heat can be lost through the roof of your house. If you don’t have it already, your home may benefit from the installation of loft or roof insulation to reduce the energy lost through the roof of the building. It is often necessary to install loft or roof insulation to enable effective heat pump operation however, regardless of heat pump installation requirements, in general, loft or roof insulation will reduce your heating demand and therefore ongoing energy bills. </p>
+
+                <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+            </section>
+
+            <section class="hsm-upgrades-page-section">
+                <h2 class="govuk-heading-l govuk-!-margin-bottom-5 hsm-heading-1">Installing Double or Triple Glazing</h2>
+                <p class="govuk-body govuk-!-margin-bottom-5">A significant quantity of heat is lost through windows. If you have single glazing, your home may benefit from the installation of double or triple glazing to reduce energy losses. For some lower temperature systems, it may be necessary to install double or triple glazing to enable effective system operation however this is not always the case. In addition, if you have a higher temperature system (as described above) you may be less likely to require double or triple glazing to enable effective heat pump operation. </p>
+                <p class="govuk-body govuk-!-margin-bottom-5">As with insulation, regardless of heat pump installation requirements, in general, installing double or triple glazing will reduce your heating demand and therefore ongoing energy bills.</p>
+
+                <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+            </section>
+
+            <section class="hsm-upgrades-page-section">
+                <h2 class="govuk-heading-l govuk-!-margin-bottom-5 hsm-heading-1">Draught Proofing and Increasing Air Tightness</h2>
+                <p class="govuk-body govuk-!-margin-bottom-5">If your home is draughty, you may be losing heat through small cracks and gaps in the windows and doors. In addition, a draught can reduce thermal comfort which may mean you set your thermostat to a higher temperature to feel warm. These factors will affect your energy bills and fixing them is relatively simple. If specific windows and doors in your home are draughty then it may be necessary to either replace them or replace their seals to increase air tightness and mitigate against draughts. </p>
+
+                <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+            </section>
+
+            <section class="hsm-upgrades-page-section">
+                <h2 class="govuk-heading-l govuk-!-margin-bottom-5 hsm-heading-1">Multizone Control</h2>
+                <p class="govuk-body govuk-!-margin-bottom-5">Multizone heating control enables you to control the heating in different parts of your home. It does this by using a thermostat in each zone and by using smart radiator valves to control the heat output at each radiator. Use of multizone control enables a reduction in the heating requirement for your home as you can heat only the rooms which are in use at any time. Some heat pump manufacturers recommend against using multizone controls with their units, as a result, please consult with a designer or installer before considering multizone controls. </p>
+
+                <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+            </section>
+
+            <section class="hsm-upgrades-page-section">
+                <h2 class="govuk-heading-l govuk-!-margin-bottom-5 hsm-heading-1">Cooling</h2>
+                <p class="govuk-body govuk-!-margin-bottom-5">Depending on your heating system setup, your heat pump may be able operate in reverse mode and cool your home in the summer months to improve your thermal comfort. Consult a design engineer for more information on this option.</p>
+
+                <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+            </section>
+
+            <section class="hsm-upgrades-page-section">
+                <h2 class="govuk-heading-l govuk-!-margin-bottom-5 hsm-heading-1">Solar Photovoltaics (PV)</h2>
+                <p class="govuk-body govuk-!-margin-bottom-5">Solar photovoltaic (PV) cells convert sunlight into usable electricity. Using the renewable electricity produced to power your heat pump system will reduce your carbon emissions and heat pump running costs. Combining with battery storage to store excess electricity will mean that you will have a renewable supply of electricity more consistently than using PV alone.</p>
+
+                <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+            </section>
+
+            <p class="govuk-body"><a href="Results" class="govuk-link govuk-body">Return to Results Overview </a>to read more about the other types of heat pump available for your home and the potential home upgrades which you may need to make. Or, if you would like to explore your heat pump options further, follow the  <a href="#next-steps" class="govuk-link govuk-body govuk-link--no-visited-state">Next Steps</a><span class="hsm-hidden-tablet"> on the top right-hand side of this page.</span><span class="hsm-hidden-desktop"> below.</span></p>
+
+        </div>
+
+        @await Html.PartialAsync("_nextStepsSection", Model.NextStepsViewModel)
+    </div>
+</div>

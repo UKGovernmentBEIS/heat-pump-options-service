@@ -1,0 +1,32 @@
+<svg width="82" height="82" viewBox="0 0 82 82" xmlns="http://www.w3.org/2000/svg">
+    <g transform="translate(1 1)" stroke="#0B0C0C" stroke-width="2" fill="none" fill-rule="evenodd">
+        <path stroke-linecap="round" d="M0 79.669h80"/>
+        <rect fill="#C2C2C2" x="9.756" width="59.837" height="4.628" rx="1"/>
+        <path d="M12.358 4.628h55.285v74.711H12.358z"/>
+        <rect x="16.911" y="66.777" width="13.659" height="7.273" rx="1"/>
+        <rect x="50.081" y="66.777" width="13.659" height="7.273" rx="1"/>
+        <rect x="36.398" y="48" width="7.87" height="5" rx="1"/>
+        <rect x="36.398" y="11" width="7.87" height="5" rx="1"/>
+        <rect x="36.398" y="30" width="7.87" height="5" rx="1"/>
+        <path fill="#C2C2C2" d="M35.122 62.81h10.407v16.529H35.122z"/>
+        <g transform="translate(7.805 8.595)">
+            <rect fill="#C2C2C2" fill-rule="nonzero" y="5.289" width="22.764" height="8" rx="1"/>
+            <path d="M9.79 0h9.038c.378 0 .684.304.684.68v4.61H9.106V.68c0-.376.306-.68.684-.68z"/>
+            <rect fill="#C2C2C2" fill-rule="nonzero" transform="rotate(-180 53.008 9.29)" x="41.626" y="5.289" width="22.764" height="8" rx="1"/>
+            <rect transform="rotate(-180 50.081 2.645)" x="44.878" width="10.407" height="5.289" rx="1"/>
+        </g>
+        <g transform="translate(7.805 26.777)">
+            <rect fill="#C2C2C2" fill-rule="nonzero" y="5.289" width="22.764" height="8" rx="1"/>
+            <path d="M9.79 0h9.038c.378 0 .684.304.684.68v4.61H9.106V.68c0-.376.306-.68.684-.68z"/>
+            <rect fill="#C2C2C2" fill-rule="nonzero" transform="rotate(-180 53.008 9.29)" x="41.626" y="5.289" width="22.764" height="8" rx="1"/>
+            <rect transform="rotate(-180 50.081 2.645)" x="44.878" width="10.407" height="5.289" rx="1"/>
+        </g>
+        <g transform="translate(7.805 44.959)">
+            <rect fill="#C2C2C2" fill-rule="nonzero" y="5.289" width="22.764" height="8" rx="1"/>
+            <path d="M9.79 0h9.038c.378 0 .684.304.684.68v4.61H9.106V.68c0-.376.306-.68.684-.68z"/>
+            <rect fill="#C2C2C2" fill-rule="nonzero" transform="rotate(-180 53.008 9.29)" x="41.626" y="5.289" width="22.764" height="8" rx="1"/>
+            <rect transform="rotate(-180 50.081 2.645)" x="44.878" width="10.407" height="5.289" rx="1"/>
+        </g>
+        <path d="M12.789 62.331h55.284"/>
+    </g>
+</svg>

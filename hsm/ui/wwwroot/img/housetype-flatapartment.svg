@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="127" height="124" viewBox="0 0 127 124">
+    <g fill="none" fill-rule="evenodd" stroke="#03C2EA" stroke-width="2.5" transform="translate(2 2)">
+        <path stroke-linecap="round" d="M0 120.5L123 120.5"/>
+        <rect width="92" height="7" x="15" fill="#CCF3FB" rx="1"/>
+        <path d="M19 7H104V120H19z"/>
+        <path d="M26 101H47V112H26zM77 101H98V112H77z"/>
+        <path fill="#CCF3FB" d="M54 95H70V120H54z"/>
+        <rect width="17" height="5" x="53" y="25" rx="1"/>
+        <path d="M56.027 17h10.946c.567 0 1.027.479 1.027 1.07V25H55v-6.93c0-.591.46-1.07 1.027-1.07z"/>
+        <g transform="translate(12 13)">
+            <rect width="35" height="13" y="8" fill="#CCF3FB" fill-rule="nonzero" rx="1"/>
+            <path d="M15.052 0h13.896C29.53 0 30 .46 30 1.028V8H14V1.028C14 .46 14.471 0 15.052 0z"/>
+            <rect width="35" height="13" y="36" fill="#CCF3FB" fill-rule="nonzero" rx="1"/>
+            <path d="M15.052 28h13.896c.581 0 1.052.46 1.052 1.028V36H14v-6.972c0-.568.471-1.028 1.052-1.028z"/>
+            <rect width="35" height="13" y="63" fill="#CCF3FB" fill-rule="nonzero" rx="1"/>
+            <path d="M15.052 55h13.896c.581 0 1.052.46 1.052 1.028V63H14v-6.972c0-.568.471-1.028 1.052-1.028z"/>
+        </g>
+        <g transform="translate(76 13)">
+            <rect width="35" height="13" y="8" fill="#CCF3FB" fill-rule="nonzero" rx="1" transform="rotate(-180 17.5 14.5)"/>
+            <rect width="16" height="8" x="5" rx="1" transform="rotate(-180 13 4)"/>
+            <rect width="35" height="13" y="36" fill="#CCF3FB" fill-rule="nonzero" rx="1" transform="rotate(-180 17.5 42.5)"/>
+            <rect width="16" height="8" x="5" y="28" rx="1" transform="rotate(-180 13 32)"/>
+            <rect width="35" height="13" y="63" fill="#CCF3FB" fill-rule="nonzero" rx="1" transform="rotate(-180 17.5 69.5)"/>
+            <rect width="16" height="8" x="5" y="55" rx="1" transform="rotate(-180 13 59)"/>
+        </g>
+        <rect width="17" height="5" x="53" y="52" rx="1"/>
+        <path d="M56.027 44h10.946c.567 0 1.027.479 1.027 1.07V52H55v-6.93c0-.591.46-1.07 1.027-1.07z"/>
+        <rect width="17" height="5" x="53" y="80" rx="1"/>
+        <path d="M56.027 72h10.946c.567 0 1.027.479 1.027 1.07V80H55v-6.93c0-.591.46-1.07 1.027-1.07zM61.5 17L61.5 25M61.5 44L61.5 52M61.5 72L61.5 80M19 94.5L104 94.5"/>
+    </g>
+</svg>

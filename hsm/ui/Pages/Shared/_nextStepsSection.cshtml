@@ -1,0 +1,46 @@
+﻿@model OCC.HSM.UI.ViewModels.NextStepsViewModel
+@{
+}
+
+<div class="govuk-grid-column-one-third-from-desktop hsm-relative">
+    <section id="next-steps" class="hsm-results-page-section hsm-results-page-section-next-steps govuk-!-margin-bottom-6">
+        <h2 class="govuk-heading-l hsm-heading-2--bg-black">Next steps</h2>
+        <ol class="hsm-next-steps-list">
+            <li class="hsm-next-steps-list__item govuk-body-l">
+                <h3 class="govuk-heading-m govuk-!-margin-bottom-3">Check if you’re eligible for any home energy grants </h3>
+                <p class="govuk-body govuk-!-margin-bottom-3"><span role="text">You may be eligible for grants to help you pay for your heat pump. Use the links below to review the available grants:<span class="govuk-visually-hidden"> The following links open in a new tab.</span></span></span></p>
+                <a href="@Model.GovukBoilerUpgradeSchemeUrl" class="govuk-link govuk-body govuk-!-display-block govuk-!-margin-bottom-3" rel="noreferrer noopener" target="_blank">
+                    Boiler Upgrade Scheme
+                </a>
+
+                <a href="@Model.SimpleEnergyAdviceGrantsUrl" class="govuk-link govuk-body govuk-!-display-block govuk-!-margin-bottom-3" rel="noreferrer noopener" target="_blank">
+                    Simple Energy Advice
+                </a>
+
+                <p class="govuk-body govuk-!-margin-bottom-3">If you live in Scotland:</p>
+                <a href="@Model.HomeEnergyScotlandGrantsUrl" class="govuk-link govuk-body govuk-!-display-block govuk-!-margin-bottom-3" rel="noreferrer noopener" target="_blank">
+                    Home Energy Scotland
+                </a>
+
+            </li>
+            <li class="hsm-next-steps-list__item govuk-body-l">
+                <h3 class="govuk-heading-m govuk-!-margin-bottom-3">Find a system designer/installer</h3>
+                <p class="govuk-body govuk-!-margin-bottom-4"><span role="text">MCS is an organisation who define the standards for the domestic renewables sector. They have a directory of approved products and contractors to increase consumer confidence. To find a designer or installer use the link <span class="govuk-visually-hidden">opens in new tab,</span> below.</span></p>
+
+                <a href="@Model.McsInstallerUrl" class="govuk-link govuk-body govuk-!-display-block govuk-!-margin-bottom-3" rel="noreferrer noopener" target="_blank">
+                    Visit MCS
+                </a>
+
+            </li>
+        </ol>
+
+        <div class="govuk-warning-text govuk-!-margin-top-3 hsm-warning-text">
+            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+            <strong class="govuk-warning-text__text">
+                <span class="govuk-warning-text__assistive">Warning</span>
+                This tool is not for system design, it only provides approximate information, including information on costs, so before proceeding with an install you must consult a qualified system designer.
+                <a href="/AboutService" class="govuk-link govuk-body govuk-!-display-block govuk-!-margin-top-3 govuk-!-margin-bottom-4">Read more about how this tool works</a>
+            </strong>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,98 @@
+﻿@page "{handler?}"
+@model OCC.HSM.UI.Pages.PostCodeModel
+@{
+    ViewData["Title"] = "Postcode";
+    Layout = "~/Pages/Shared/_altLayoutHome.cshtml";
+}
+
+<div class="hsm-post-code-page">
+    <div class="govuk-grid-row govuk-!-margin-bottom-5">
+        <div class="govuk-grid-column-two-thirds-from-desktop">
+            @if (Model.IsError)
+            {
+                <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
+                    <h2 class="govuk-error-summary__title" id="error-summary-title">
+                        There is a problem
+                    </h2>
+                    <div class="govuk-error-summary__body">
+                        <ul class="govuk-list govuk-error-summary__list">
+                            <li>
+                                <a href="@(Model.Addresses == null ? "#address-postcode" : "#select-address")">@Model.Message</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            }
+            <section class="hsm-post-code-page-section hsm-post-code-page-section-info govuk-!-margin-bottom-6">
+                <h1 class="govuk-heading-xl govuk-!-margin-bottom-5 hsm-heading-1">Enter your postcode to find information about your home</h1>
+                <p class="govuk-body govuk-!-margin-bottom-3 hsm-start-page-section__paragraph">Telling us your postcode and address lets us find your Energy Performance Certificate (EPC) which contains information about the energy efficiency of your home. This information can then be used to auto-populate answers to some of our questions about your home. </p>
+                <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-5">
+					<li>If an EPC is available, this information can be used to auto-populate some of your answers. </li>
+					<li>If an EPC is not available, you can continue without this information and manually answer the questions about your home.</li>
+				</ul>
+            </section>
+
+            <form method="post" novalidate>
+                @if (Model.Addresses == null)
+                {
+                    <div class="govuk-form-group govuk-!-margin-bottom-3 @(Model.IsError && !string.IsNullOrEmpty(Model.Message) ? "govuk-form-group--error" : "")">
+                        <label class="govuk-label govuk-!-font-size-27 govuk-!-font-weight-bold" for="address-postcode">
+                            Postcode
+                        </label>
+                        @if (Model.IsError && !String.IsNullOrEmpty(Model.Message))
+                        {
+                            <p id="address-postcode-error" class="govuk-error-message">
+                                <span class="govuk-visually-hidden">Error:</span> @Model.Message
+                            </p>
+                        }
+                        <input type="text" asp-for="PostcodeText" value="@Model.PostcodeText" id="address-postcode" class="govuk-input hsm-input--postcode" autocomplete="postal-code">
+
+                    </div>
+
+                    <button class="govuk-button" data-module="govuk-button" asp-page-handler="Postcode">Find my address</button>
+                    <p class="govuk-body hsm-margin-bottom-0">
+                        <input type="submit" value="Continue without Energy Performance Certificate (EPC)" asp-page-handler="WithoutEPCData" class="govuk-body govuk-link hsm-form-link hsm-input-epc-large" role="link"/>
+                    </p>
+                    <p class="govuk-body hsm-margin-bottom-0">
+                        <input type="submit" value="Continue without EPC" asp-page-handler="WithoutEPCData" class="govuk-body govuk-link hsm-form-link hsm-input-epc-small" role="link"/>
+                    </p>
+                }
+                else if (Model.Addresses != null && Model.Addresses.Count() > 0)
+                {
+                    <div class="govuk-form-group govuk-!-margin-bottom-3">
+                        <h2 class="govuk-body govuk-!-font-size-24 govuk-!-font-weight-bold hsm-margin-bottom-1">
+                            Postcode
+                        </h2>
+                        <span class="govuk-body govuk-!-font-weight-bold govuk-!-margin-right-3 hsm-margin-bottom-0">@Model.PostcodeText</span>
+                        <input type="submit" value="Change postcode" asp-page-handler="ChangePostcode" class="govuk-body govuk-link govuk-link--no-visited-state hsm-form-link hsm-margin-bottom-0" role="link"/>
+                    </div>
+
+                    <div class="govuk-form-group govuk-!-margin-bottom-5 @(string.IsNullOrEmpty(Model.Message) ? "" : "govuk-form-group--error")">
+                        <p class="govuk-body govuk-!-margin-bottom-3 hsm-start-page-section__paragraph">We found Energy Performance Certificates (EPCs) for the following properties:  </p>
+                        <label class="govuk-label govuk-visually-hidden" for="select-address">
+                            Select an address
+                        </label>
+                        @if (!String.IsNullOrEmpty(Model.Message))
+                        {
+                            <p id="address-postcode-error" class="govuk-error-message">
+                                <span class="govuk-visually-hidden">Error:</span> @Model.Message
+                            </p>
+                        }
+                        <select asp-for="AddressText" asp-items="@Model.Addresses" class="govuk-select govuk-!-width-two-thirds" id="select-address">
+                            <option value="found" selected>@Model.Addresses.Count() addresses found</option>
+                        </select>
+                    </div>
+
+                    <button asp-page-handler="SelectAddress" class="govuk-button govuk-!-display-block" data-module="govuk-button">Continue</button>
+
+                    <p class="govuk-body hsm-margin-bottom-0">
+                        If your address is not listed, please
+                        <input type="submit" value="Continue without Energy Performance Certificate (EPC)" asp-page-handler="WithoutEPCData" class="govuk-body govuk-link hsm-form-link hsm-input-epc-large" role="link"/>
+                        <input type="submit" value="Continue without EPC" asp-page-handler="WithoutEPCData" class="govuk-body govuk-link hsm-form-link hsm-input-epc-small" role="link"/>
+                    </p>
+                }
+            </form>
+        </div>
+    </div>
+</div>
+

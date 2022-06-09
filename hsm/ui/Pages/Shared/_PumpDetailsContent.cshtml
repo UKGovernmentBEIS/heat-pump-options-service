@@ -1,0 +1,326 @@
+﻿@model OCC.HSM.UI.ViewModels.PumpDetailsViewModel
+@{
+}
+
+@if (Model?.EohResult != null)
+{
+    <div class="hsm-pump-details-page">
+        <div class="govuk-grid-row govuk-!-margin-bottom-5">
+            <div class="govuk-grid-column-two-thirds-from-desktop">
+                @if (TempData["ErrorMsg"] != null)
+                {
+                    <p>@TempData["ErrorMsg"]</p>
+                }
+                @if (Model.IsAirSourceVisible)
+                {
+                    //Air source Heat Pump
+                    <section class="hsm-pump-details-page-section hsm-pump-details-page-section__intro">
+                        <h1 class="govuk-heading-l govuk-!-margin-bottom-4 hsm-heading-1">@Model.HeatPumpType Heat Pump</h1>
+                        @if (Model.HeatPumpSuitable == (ushort)Enums.EnumHeatPumpSuitability.Suitable)
+                        {
+                            <strong class="govuk-tag govuk-tag--green govuk-!-margin-bottom-4">May be an option for your home</strong>
+                        }
+                        else if (Model.HeatPumpSuitable == (ushort)Enums.EnumHeatPumpSuitability.NotSuitable)
+                        {
+                            <strong class="govuk-tag govuk-tag--red govuk-!-margin-bottom-4">Not an option for your home</strong>
+                        }
+                        <p class="govuk-body govuk-!-margin-bottom-4">An @Model.HeatPumpType Heat Pump takes heat at a low temperature from the outside air. It then uses an electric compressor system to increase the temperature of this heat, so it can provide space heating and hot water for your home.</p>
+                        <p class="govuk-body govuk-!-margin-bottom-4">An @Model.HeatPumpType Heat Pump system installation will typically take 3 days though this period may vary based on your current heating system and the upgrades required. During this time, your heating system may not be operational.</p>
+                        <p class="govuk-body govuk-!-margin-bottom-4">
+                            For more information on @Model.HeatPumpType Heat Pumps, visit
+                            <a href="@Model.SeaAirSourceHeatPumpsUrl" class="govuk-link govuk-body" rel="noreferrer noopener" target="_blank">
+                                <span>Simple Energy Advice</span><span class="govuk-visually-hidden">(opens in new tab)</span>
+                            </a>
+                        </p>
+                    </section>
+
+                    <section class="hsm-pump-details-page-section hsm-pump-details-page-section__figure govuk-!-margin-bottom-7">
+                        <figure>
+                            <img src="/images/air-source-heat-pump.png" class="hsm-pump-details-page-section__figure-img" alt="Heat pump standing on the ground next to a house wall below the window">
+                            <figcaption class="govuk-body govuk-!-padding-5 hsm-caption">This photograph shows what a typical @Model.HeatPumpType Heat Pump installation may look like outside your home. <span class="govuk-!-display-block govuk-!-margin-top-3"> This photograph was provided by Mitsubishi Electric.</span></figcaption>
+                        </figure>
+                    </section>
+                }
+                else if (Model.IsGroundSourceVisible)
+                {
+                    //Ground Source Heat Pump
+                    <section class="hsm-pump-details-page-section hsm-pump-details-page-section__intro">
+                        <h1 class="govuk-heading-l govuk-!-margin-bottom-4 hsm-heading-1">@Model.HeatPumpType Heat Pump</h1>
+                        @if (Model.HeatPumpSuitable == (ushort)Enums.EnumHeatPumpSuitability.Suitable)
+                        {
+                            <strong class="govuk-tag govuk-tag--green govuk-!-margin-bottom-4">Suitable for your home</strong>
+                        }
+                        else if (Model.HeatPumpSuitable == (ushort)Enums.EnumHeatPumpSuitability.NotSuitable)
+                        {
+                            <strong class="govuk-tag govuk-tag--red govuk-!-margin-bottom-4">not suitable for your home</strong>
+                        }
+                        <p class="govuk-body govuk-!-margin-bottom-4">A @Model.HeatPumpType Heat Pump takes heat at a low temperature from the ground outside your house. It then uses an electric compressor system to increase the temperature of this heat, so it can be used to provide space heating and hot water for your home.</p>
+                        <p class="govuk-body govuk-!-margin-bottom-4">A @Model.HeatPumpType Heat Pump system installation will typically take 30-40  days though this period may vary. This period is inclusive of the groundworks required so your heating system will be operational for most of this time. </p>
+                        <p class="govuk-body govuk-!-margin-bottom-4">
+                            For more information on @Model.HeatPumpType Heat Pumps, visit <a href="@Model.SeaGroundSourceHeatPumpsUrl" class="govuk-link govuk-body" rel="noreferrer noopener" target="_blank">
+                                <span>Simple Energy Advice Tool</span><span class="govuk-visually-hidden">(opens in new tab)</span>
+                            </a>
+                        </p>
+                    </section>
+
+                    <section class="hsm-pump-details-page-section hsm-pump-details-page-section__figure govuk-!-margin-bottom-7">
+                        <figure>
+                            <img src="/images/ground-source-heat-pump.png" class="hsm-pump-details-page-section__figure-img" alt="Heat pump standing on the floor inside an airing cupboard">
+                            <figcaption class="govuk-body govuk-!-padding-5 hsm-caption">This photograph shows what a typical @Model.HeatPumpType Heat Pump installation may look like inside your home.<span class="govuk-!-display-block govuk-!-margin-top-3">This photograph was provided by Kensa.</span></figcaption>
+                        </figure>
+                    </section>
+                }
+                else if (Model.IsHighTempAirSourceVisible)
+                {
+                    //High Temp Air Source Heat Pump
+                    <section class="hsm-pump-details-page-section hsm-pump-details-page-section__intro">
+                        <h1 class="govuk-heading-l govuk-!-margin-bottom-4 hsm-heading-1">@Model.HeatPumpType Heat Pump</h1>
+                        @if (Model.HeatPumpSuitable == (ushort)Enums.EnumHeatPumpSuitability.Suitable)
+                        {
+                            <strong class="govuk-tag govuk-tag--green govuk-!-margin-bottom-4">Suitable for your home</strong>
+                        }
+                        else if (Model.HeatPumpSuitable == (ushort)Enums.EnumHeatPumpSuitability.NotSuitable)
+                        {
+                            <strong class="govuk-tag govuk-tag--red govuk-!-margin-bottom-4">not suitable for your home</strong>
+                        }
+                        <p class="govuk-body govuk-!-margin-bottom-4">A @Model.HeatPumpType Heat Pump takes heat at a low temperature from the outside air. It then uses an electric compressor system to increase the temperature of this heat, so it can provide space heating and hot water for your home.</p>
+                        <p class="govuk-body govuk-!-margin-bottom-4">A High Temperature heat pump can output water at a higher temperature than a standard Air Source heat pump so may be suitable for properties with fewer additional energy efficiency measures.</p>
+                        <p class="govuk-body govuk-!-margin-bottom-4">A High Temperature Air Source Heat Pump system installation will typically take 3 days though this period may vary based on your heating system and the upgrades required. During this time, your heating system may not be operational. </p>
+                        <p class="govuk-body govuk-!-margin-bottom-4">
+                            For more information on @Model.HeatPumpType Heat Pumps, visit<a href="@Model.SeaHighTempAirSourceHeatPumpsUrl" class="govuk-link govuk-body" rel="noreferrer noopener" target="_blank">
+                                <span>Simple Energy Advice Tool</span><span class="govuk-visually-hidden">(opens in new tab)</span>
+                            </a>
+                        </p>
+                    </section>
+
+                    <section class="hsm-pump-details-page-section hsm-pump-details-page-section__figure govuk-!-margin-bottom-7">
+                        <figure>
+                            <img src="/images/high-temp-air-source-heat-pump.png" class="hsm-pump-details-page-section__figure-img" alt="Heat pump standing on the ground next to a house wall">
+                            <figcaption class="govuk-body govuk-!-padding-5 hsm-caption">This photograph shows what a typical @Model.HeatPumpType Heat Pump installation may look like outside your home.</figcaption>
+                        </figure>
+                    </section>
+                }
+                else if (Model.IsHybridVisible)
+                {
+                    //Hybrid Heat Pump
+                    <section class="hsm-pump-details-page-section hsm-pump-details-page-section__intro">
+                        <h1 class="govuk-heading-l govuk-!-margin-bottom-4 hsm-heading-1">Hybrid Heat Pump</h1>
+                        @if (Model.HeatPumpSuitable == (ushort)Enums.EnumHeatPumpSuitability.Suitable)
+                        {
+                            <strong class="govuk-tag govuk-tag--green govuk-!-margin-bottom-4">Suitable for your home</strong>
+                        }
+                        else if (Model.HeatPumpSuitable == (ushort)Enums.EnumHeatPumpSuitability.NotSuitable)
+                        {
+                            <strong class="govuk-tag govuk-tag--red govuk-!-margin-bottom-4">not suitable for your home</strong>
+                        }
+                        <p class="govuk-body govuk-!-margin-bottom-4">A @Model.HeatPumpType Pump combines a traditional boiler with an @Model.HeatPumpType Heat Pump. The system automatically switches between them as required. A Hybrid Heat Pump can be suitable for homes that need the extra heat that a gas boiler can provide but will have higher carbon emissions than a heat pump alone.</p>
+                        <p class="govuk-body govuk-!-margin-bottom-4">@Model.HeatPumpType Heat Pumps can provide instant hot water so may reduce the need for a thermal store. As they operate at higher temperatures, they may also reduce the need for additional home improvements and energy efficiency measures.</p>
+                        <p class="govuk-body govuk-!-margin-bottom-4">A @Model.HeatPumpType Heat Pump system installation will typically take 3  days though this period may vary based on your heating system and the upgrades required. During this time, your heating system may not be operational. </p>
+                        <p class="govuk-body govuk-!-margin-bottom-4">
+                            For more information on @Model.HeatPumpType Heat Pumps, visit <a href="@Model.SeaHybridHeatPumpsUrl" class="govuk-link govuk-body" rel="noreferrer noopener" target="_blank">
+                                <span>Simple Energy Advice Tool</span><span class="govuk-visually-hidden">(opens in new tab)</span>
+
+                            </a>
+                        </p>
+                    </section>
+
+                    <section class="hsm-pump-details-page-section hsm-pump-details-page-section__figure govuk-!-margin-bottom-7">
+                        <figure>
+                            <img src="/images/hybrid-heat-pump.png" class="hsm-pump-details-page-section__figure-img" alt="">
+                            <figcaption class="govuk-body govuk-!-padding-5 hsm-caption">This photograph shows what a typical Hybrid Air Source Heat Pump installation may look like inside and outside of your home. The left of the image shows a standard combi gas boiler which is operating in tandem with the heat pump shown on the right. <span class="govuk-!-display-block govuk-!-margin-top-3"> Photograph Copyright: Daikin. </span></figcaption>
+                        </figure>
+                    </section>
+                }
+
+                <section class="hsm-pump-details-page-section hsm-pump-details-page-section__costs">
+                    @if (Model.HeatPumpEquipCostMin != null && Model.HeatPumpSuitable == (ushort)Enums.EnumHeatPumpSuitability.Suitable)
+                    {
+                        <div class="hsm-pump-details-page-section__costs-1 govuk-!-margin-bottom-6">
+                            <h2 class="govuk-heading-m hsm-margin-bottom-1">
+                                <span aria-hidden="true">
+                                    Heat Pump Costs
+                                    <span class="govuk-body govuk-!-font-size-36 hsm-heading-green hsm-margin-bottom-0">
+                                        <span class="govuk-!-font-size-24 hsm-heading-green--align-start">£</span> @Model.HeatPumpEquipCostMin -<span class="govuk-!-font-size-24 hsm-heading-green--align-start"> &nbsp; £</span> @Model.HeatPumpEquipCostMax
+                                    </span>
+                                </span>
+                                <span class="govuk-visually-hidden">Heat Pump Costs, £@Model.HeatPumpEquipCostMin to £@Model.HeatPumpEquipCostMax</span>
+                            </h2>
+                            <p class="govuk-body">We have estimated that installing an @Model.HeatPumpType Heat Pump system in your home will cost this much. This value is inclusive of the heat pump equipment and installation cost; however, it excludes any additional changes to your home which may be required. For more information on these see the potential home upgrades section below.</p>
+                            <p class="govuk-body hsm-margin-bottom-0">Generally, around 40% of this value is attributed to the installation of the heat pump with the remainder being the cost for the equipment.</p>
+                            <div class="govuk-inset-text">
+                                Note that there are several funding options available in the UK including government grants to assist with the cost of installing a heat pump. Follow the <a href="#next-steps" class="govuk-link govuk-body govuk-link--no-visited-state">Next Steps</a><span class="hsm-hidden-tablet"> to the right of this page</span><span class="hsm-hidden-desktop"> at the bottom of this page</span> to find out more.
+                            </div>
+                        </div>
+
+                        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+                    }
+                </section>
+
+                <section class="hsm-pump-details-page-section hsm-pump-details-page-section__thermal govuk-!-margin-bottom-6">
+                    <h2 class="govuk-heading-m hsm-margin-bottom-1">
+                        <span aria-hidden="true">
+                            Thermal Store
+                            <span class="govuk-body govuk-!-font-size-36 hsm-heading-green hsm-margin-bottom-0">
+                                <span class="govuk-!-font-size-24 hsm-heading-green--align-start">£</span> 2500 -<span class="govuk-!-font-size-24 hsm-heading-green--align-start"> &nbsp; £</span> 3000
+                            </span>
+                        </span>
+                        <span class="govuk-visually-hidden">Thermal storage, £2500 to £3000</span>
+                    </h2>
+                    <p class="govuk-body govuk-!-margin-bottom-4">Heat pumps do not produce instant hot water, therefore, unless you have one already, you will require a thermal store in your home to support the supply of hot water. As well as the cost, you need to consider the space for a thermal store to be installed. </p>
+
+                    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+                </section>
+
+                <section class="hsm-pump-details-page-section hsm-pump-details-page-section__upgrades">
+                    <div class="hsm-pump-details-page-section__upgrades-intro govuk-!-margin-bottom-6">
+                        <h2 class="govuk-heading-m hsm-margin-bottom-1">Potential Home Upgrades</h2>
+                        <p class="govuk-body govuk-!-margin-bottom-4">@Model.HeatPumpType Heat Pumps work better in more energy efficient homes. Using the information which you have provided, we have predicted that the following upgrade measures may be required for efficient heat pump operation within your home. These measures will ensure that a heat pump will operate efficiently and at lowest cost. </p>
+                    </div>
+
+                    @if (Model.RadiatorChangeApproxCost != null)
+                    {
+                        <div class="hsm-pump-details-page-section__upgrades-1 govuk-!-margin-bottom-6">
+                            <h3 class="govuk-heading-s hsm-margin-bottom-1">
+                                <span aria-hidden="true">
+                                    Radiator Change
+                                    <span class="govuk-body govuk-!-font-size-36 hsm-heading-green hsm-margin-bottom-0">
+                                        <span class="govuk-!-font-size-24 hsm-heading-green--align-start">£</span>@Model.RadiatorChangeApproxCost <span class="govuk-!-font-size-24 hsm-heading-green--align-start"> per radiator</span>
+                                    </span>
+                                </span>
+                                <span class="govuk-visually-hidden">Radiator Change, £@Model.RadiatorChangeApproxCost per radiator</span>
+                            </h3>
+
+                            @if (Model.IsAirSourceVisible || Model.IsGroundSourceVisible)
+                            {
+                                <p class="govuk-body hsm-margin-bottom-1">As a @Model.HeatPumpType Heat Pump is likely to generate heat at a lower temperature than your existing heating system your home may benefit from changing some of the radiators. The number of radiators needing to be replaced varies per home and heating system and for around 50% of properties, no radiator changes are necessary.</p>
+
+                            }
+                            else if (Model.IsHighTempAirSourceVisible || Model.IsHybridVisible)
+                            {
+                                <p class="govuk-body hsm-margin-bottom-1">A @Model.HeatPumpType Heat Pump may provide heat at a lower temperature to your current heating system. Therefore, your home may benefit from replacing some radiators. However, by installing a @Model.HeatPumpType Heat Pump rather than a standard unit, the requirement for radiator replacements will be significantly reduced and there may be no need to change radiators. </p>
+                            }
+
+                            <p class="govuk-body hsm-margin-bottom-1">The cost of radiator replacements will vary based on the number and size of the radiators which need replacing however, a typical cost to replace one radiator is given above. </p>
+                        </div>
+                    }
+
+                    @if (Model.GlazingUpgradeApproxCost != null && Model.EohResult.Glazing == (ushort)Enums.EnumGlazing.Single)
+                    {
+                        <div class="hsm-pump-details-page-section__upgrades-2 govuk-!-margin-bottom-6">
+                            <h3 class="govuk-heading-s hsm-margin-bottom-1">
+                                <span aria-hidden="true">
+                                    Windows
+                                    <span class="govuk-body govuk-!-font-size-36 hsm-heading-green hsm-margin-bottom-0">
+                                        <span class="govuk-!-font-size-24 hsm-heading-green--align-start">£</span>@Model.GlazingUpgradeApproxCost
+                                    </span>
+                                </span>
+                                <span class="govuk-visually-hidden">Windows, £@Model.GlazingUpgradeApproxCost</span>
+                            </h3>
+
+
+                            <p class="govuk-body hsm-margin-bottom-1">A significant quantity of heat is lost through windows.  You told us that you had single glazing in your home - upgrading to double or triple glazing will improve energy efficiency and your overall comfort. The cost of installing double or triple glazing varies based upon the number of windows and style however, an average cost is given above.</p>
+
+                            @if (Model.IsHighTempAirSourceVisible || Model.IsHybridVisible)
+                            {
+                                <p class="govuk-body hsm-margin-bottom-1">By choosing to install a @Model.HeatPumpType Heat Pump, the need to replace your windows may be reduced. However, installing more efficient glazing will reduce your energy bills so it should still be considered. </p>
+                            }
+                        </div>
+                    }
+
+                    @if (Model.WallInsulationApproxCost != null && (Model.EohResult.WallType == (ushort)Enums.EnumWallType.CavityUnfilled || Model.EohResult.WallType == (ushort)Enums.EnumWallType.SolidUninsulated))
+                    {
+                        <div class="hsm-pump-details-page-section__upgrades-3 govuk-!-margin-bottom-6">
+                            <h3 class="govuk-heading-s hsm-margin-bottom-1">
+                                <span aria-hidden="true">
+                                    Wall Insulation
+                                    <span class="govuk-body govuk-!-font-size-36 hsm-heading-green hsm-margin-bottom-0">
+                                        <span class="govuk-!-font-size-24 hsm-heading-green--align-start">£</span>@Model.WallInsulationApproxCost
+                                    </span>
+                                </span>
+                                <span class="govuk-visually-hidden">Wall Insulation, £@Model.WallInsulationApproxCost</span>
+                            </h3>
+
+                            <p class="govuk-body hsm-margin-bottom-1">The type of walls that you have make a large difference to your energy efficiency and how much heating your home requires. Your home may benefit from the addition of wall insulation to reduce your overall heating requirement. The cost of installing wall insulation will vary based upon the size of your home however, an average cost is given above.</p>
+
+                            @if (Model.IsHighTempAirSourceVisible || Model.IsHybridVisible)
+                            {
+                                <p class="govuk-body hsm-margin-bottom-1">By choosing to install a @Model.HeatPumpType Heat Pump, the need to insulate your homes walls may be reduced. However, installing wall insulation will reduce your energy bills so it should still be considered.</p>
+                            }
+                        </div>
+                    }
+
+                    @if (Model.LoftInsulationApproxCost != null)
+                    {
+                        <div class="hsm-pump-details-page-section__upgrades-4 govuk-!-margin-bottom-6">
+                            <h3 class="govuk-heading-s hsm-margin-bottom-1">
+                                <span aria-hidden="true">
+                                    Loft or roof Insulation
+                                    <span class="govuk-body govuk-!-font-size-36 hsm-heading-green hsm-margin-bottom-0">
+                                        <span class="govuk-!-font-size-24 hsm-heading-green--align-start">£</span>@Model.LoftInsulationApproxCost
+                                    </span>
+                                </span>
+                                <span class="govuk-visually-hidden">Loft or roof Insulation, £@Model.WallInsulationApproxCost</span>
+                            </h3>
+
+                            <p class="govuk-body hsm-margin-bottom-1">A large quantity of heat can be lost through the roof of your house. Insulating your loft or roof can reduce this significantly. This reduction in heat loss will increase the efficiency of a future heat pump system. The cost of installing loft or roof insulation can vary based upon the size of your home and the type of roof. However, an average is given above.</p>
+
+                            @if (Model.IsHighTempAirSourceVisible || Model.IsHybridVisible)
+                            {
+                                <p class="govuk-body hsm-margin-bottom-1">By choosing to install a @Model.HeatPumpType Heat Pump, the need to insulate your homes roof or loft may be reduced. However, installing roof insulation will reduce your energy bills so it should still be considered.</p>
+                            }
+                        </div>
+                    }
+                    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+                </section>
+
+                <section class="hsm-pump-details-page-section hsm-pump-details-page-section__comparative">
+                    @if (Model.CarbonEmissionSavings != null && Model.HeatPumpSuitable == (ushort)Enums.EnumHeatPumpSuitability.Suitable)
+                    {
+                        <div class="hsm-pump-details-page-section__comparative-2 govuk-!-margin-bottom-6">
+                            <h2 class="govuk-heading-m hsm-margin-bottom-1">
+                                <span aria-hidden="true">
+                                    Comparative Heating Carbon Emissions
+                                    <span class="govuk-body govuk-!-font-size-36 hsm-heading-green">
+                                        @if (@Model.CarbonEmissionSavings > 0)
+                                        {
+                                            <span class="govuk-!-font-size-27 hsm-heading-green--align-center">+</span>
+                                        }
+                                        @(Convert.ToDecimal(@Model.CarbonEmissionSavings))<span class="govuk-!-font-size-24 hsm-heading-green--align-start">%</span>
+                                    </span>
+                                </span>
+                                <span class="govuk-visually-hidden">
+                                    Carbon emission savings,
+                                    @if (@Model.CarbonEmissionSavings > 0)
+                                    {
+                                        <span>+</span>
+                                    }
+                                    @(Convert.ToDecimal(@Model.CarbonEmissionSavings)) %
+                                </span>
+                            </h2>
+                            <p class="govuk-body">Heat pumps are classed as renewable heating technology. Switching to an @Model.HeatPumpType Heat Pump could change the carbon emissions produced to heat your home by this much. </p>
+                            <p class="govuk-body">This estimate is per unit of heat (kWh) produced compared to your current heating system. </p>
+                            <p class="govuk-body">
+                                As part of the <a href="@Model.GovukNetZeroStrategyUrl" class="govuk-link" rel="noreferrer noopener" target="_blank">
+                                    <span>Net-Zero Strategy</span><span class="govuk-visually-hidden">(opens in new tab)</span>
+                                </a>
+                                , mains electricity will continue to decarbonise, therefore the carbon emissions from your heat pump are likely to reduce over time.
+                            </p>
+                        </div>
+                        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+                    }
+                </section>
+            </div>
+
+            @await Html.PartialAsync("_nextStepsSection", Model.NextStepsViewModel)
+
+        </div>
+        <div class="govuk-grid-row govuk-!-margin-bottom-5 no-print">
+            <div class="govuk-grid-column-two-thirds-from-desktop">
+                <p class="govuk-body"><a href="Results" class="govuk-link govuk-body">Return to Results Overview </a>to read more about the other types of heat pump available for your home and the potential home upgrades which you may need to make. Or, if you would like to explore your heat pump options further, follow the  <a href="#next-steps" class="govuk-link govuk-body govuk-link--no-visited-state">Next Steps</a><span class="hsm-hidden-tablet"> on the top right-hand side of this page.</span><span class="hsm-hidden-desktop"> above.</span></p>
+            </div>
+            <div class="govuk-grid-column-two-thirds-from-desktop">
+                @await Html.PartialAsync("_printPage")
+            </div>
+        </div>
+    </div>
+}

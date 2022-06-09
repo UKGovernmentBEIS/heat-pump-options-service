@@ -1,0 +1,24 @@
+@page
+@model OCC.HSM.UI.Pages.EPCNotFoundModel
+@{
+    ViewData["Title"] = "EPCNotFound";
+    Layout = "~/Pages/Shared/_mainLayout.cshtml";
+}
+
+<div class="hsm-EPCNotFound-page">
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds-from-desktop">
+            <form method="post" novalidate>
+                <section class="hsm-EPCNotFound-page-section hsm-EPCNotFound-page-section-results govuk-!-margin-bottom-8">
+                    <div class="govuk-!-margin-bottom-5">
+                        <h1 class="govuk-heading-l govuk-!-display-inline govuk-!-margin-bottom-5">No results for @(string.IsNullOrEmpty(@Model.Postcode) ? "" : @Model.Postcode) &nbsp;</h1>
+                        <a href="/Postcode" class="govuk-body govuk-!-font-size-24 govuk-link govuk-link--no-visited-state">Change postcode</a>
+                    </div>
+                    <p class="govuk-body hsm-EPCNotFound-page-section__paragraph govuk-!-margin-bottom-5">There are no Energy Performance Certificates for this postcode. You can still proceed to find heat pump options by answering a few questions about your home. </p>
+                    <button class="govuk-button govuk-!-display-block" data-module="govuk-button">Continue without Energy Performance Certificate (EPC)</button>
+                    <span class="govuk-body govuk-!-display-block">If your home does not have an energy certificate or it has expired, you can <a href="@Model.GovukGetEnergyCertificateUrl" class="govuk-link">get a new energy certificate</a></span>
+                </section>
+            </form>
+        </div>
+    </div>
+</div>

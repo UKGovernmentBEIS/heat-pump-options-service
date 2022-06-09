@@ -1,0 +1,212 @@
+﻿@model OCC.HSM.UI.ViewModels.ResultsComparisonViewModel
+@{
+}
+
+<div class="hsm-comparison-page">
+    <div class="govuk-grid-row govuk-!-margin-bottom-3">
+        @if (Model?.EohResult != null)
+        {
+            <div class="govuk-grid-column-two-thirds-from-desktop">
+                <h1 class="govuk-heading-xl govuk-!-margin-bottom-6 hsm-heading-1">Compare the heat pumps</h1>
+                <p class="govuk-body">This page provides a summary of the heat pumps which may be an option for your home. It provides a comparison of the estimated installation costs, carbon emissions and an overview of the cost of home improvements which you may need to make. You may read more about each heat pump type or the home upgrades by returning to the previous page. </p>
+                <hr class="hsm-section-break-blue govuk-!-margin-bottom-5">
+                <section class="hsm-comparison-page-section hsm-comparison-page-section-pump-cost govuk-!-margin-bottom-5">
+                    <h2 class="govuk-heading-l govuk-!-margin-bottom-3">Heat Pump Options</h2>
+                    <p class="govuk-body">The below table provides an overview of which heat pumps may be options for your home.</p>
+                    <table class="govuk-table govuk-!-margin-bottom-8">
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header hsm-width-one-half">Heat Pump Type</th>
+                                <th scope="col" class="govuk-table__header hsm-width-one-half">Result</th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">Air source</th>
+                                <td class="govuk-table__cell">@(Model.EohResult.LtAshpSuitable == (ushort)Enums.EnumHeatPumpSuitability.Suitable ? "May be an option" : "Not an option")</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">High temp air source</th>
+                                <td class="govuk-table__cell">@(Model.EohResult.HtAshpSuitable == (ushort)Enums.EnumHeatPumpSuitability.Suitable ? "May be an option" : "Not an option")</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">Ground source</th>
+                                <td class="govuk-table__cell">@(Model.EohResult.GshpSuitable == (ushort)Enums.EnumHeatPumpSuitability.Suitable ? "May be an option" : "Not an option")</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">Hybrid</th>
+                                <td class="govuk-table__cell">@(Model.EohResult.HhpSuitable == (ushort)Enums.EnumHeatPumpSuitability.Suitable ? "May be an option" : "Not an option")</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+
+                @if (@Model.EohResult.LtAshpEquipCostMin != null || @Model.EohResult.HtAshpEquipCostMin != null || @Model.EohResult.GshpEquipCostMin != null || @Model.EohResult.HhpEquipCostMin != null)
+                {
+                    <hr class="hsm-section-break-blue govuk-!-margin-bottom-5">
+                    <section class="hsm-comparison-page-section hsm-comparison-page-section-pump-cost govuk-!-margin-bottom-5">
+                        <h2 class="govuk-heading-l govuk-!-margin-bottom-3">Heat Pump Costs</h2>
+                        <p class="govuk-body">
+                            The below table provides the estimated cost of installing each of the heat pumps which may be an option for your home. These values exclude the cost of any home upgrades.
+                        </p>
+                        <p class="govuk-body">
+                            Note that there are several funding options available in the UK including government grants to assist with the cost of installing a heat pump. Follow the <a href="#next-steps" class="govuk-link govuk-body govuk-link--no-visited-state">Next Steps</a> <span class="hsm-hidden-tablet"> to the right of this page</span><span class="hsm-hidden-desktop"> below</span> to find out more.
+                        </p>
+                        <table class="govuk-table govuk-!-margin-bottom-8">
+                            <thead class="govuk-table__head">
+                                <tr class="govuk-table__row">
+                                    <th scope="col" class="govuk-table__header hsm-width-one-half">Heat Pump Type</th>
+                                    <th scope="col" class="govuk-table__header hsm-width-one-half">Installation Cost</th>
+                                </tr>
+                            </thead>
+                            <tbody class="govuk-table__body">
+                                @if (@Model.EohResult.LtAshpEquipCostMin != null && Model.EohResult.LtAshpSuitable == (ushort)Enums.EnumHeatPumpSuitability.Suitable)
+                                {
+                                    <tr class="govuk-table__row">
+                                        <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">Air source</th>
+                                        <td class="govuk-table__cell">£@Model.EohResult.LtAshpEquipCostMin - £@Model.EohResult.LtAshpEquipCostMax</td>
+                                    </tr>
+                                }
+                                @if (@Model.EohResult.HtAshpEquipCostMin != null && Model.EohResult.HtAshpSuitable == (ushort)Enums.EnumHeatPumpSuitability.Suitable)
+                                {
+                                    <tr class="govuk-table__row">
+                                        <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">High temp air source</th>
+                                        <td class="govuk-table__cell">£@Model.EohResult.HtAshpEquipCostMin - £@Model.EohResult.HtAshpEquipCostMax</td>
+                                    </tr>
+                                }
+                                @if (@Model.EohResult.GshpEquipCostMin != null && Model.EohResult.GshpSuitable == (ushort)Enums.EnumHeatPumpSuitability.Suitable)
+                                {
+                                    <tr class="govuk-table__row">
+                                        <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">Ground source</th>
+                                        <td class="govuk-table__cell">£@Model.EohResult.GshpEquipCostMin - £@Model.EohResult.GshpEquipCostMax</td>
+                                    </tr>
+                                }
+                                @if (@Model.EohResult.HhpEquipCostMin != null && Model.EohResult.HhpSuitable == (ushort)Enums.EnumHeatPumpSuitability.Suitable)
+                                {
+                                    <tr class="govuk-table__row">
+                                        <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">Hybrid</th>
+                                        <td class="govuk-table__cell">£@Model.EohResult.HhpEquipCostMin - £@Model.EohResult.HhpEquipCostMax</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </section>
+                }
+
+                <hr class="hsm-section-break-blue govuk-!-margin-bottom-5">
+                @if (Model.RadiatorChangeApproxCost != null)
+                {
+                    <section class="hsm-comparison-page-section hsm-comparison-page-section-pump-cost">
+                        <h2 class="govuk-heading-l govuk-!-margin-bottom-3">Home and System Upgrades</h2>
+                        <p class="govuk-body">The below table gives an overview of the home and heating system upgrades which may be required for your home. If you decide to install a High Temperature Heat Pump or a Hybrid Heat Pump system, replacing radiators and increasing insulation levels may not be necessary for your home. In addition, a Thermal Store may not be required if you install a Hybrid Heat Pump system.</p>
+                        <table class="govuk-table">
+                            <thead class="govuk-table__head">
+                                <tr class="govuk-table__row">
+                                    <th scope="col" class="govuk-table__header hsm-width-one-half">Home Upgrade</th>
+                                    <th scope="col" class="govuk-table__header hsm-width-one-half">Cost</th>
+                                </tr>
+                            </thead>
+                            <tbody class="govuk-table__body">
+                                <tr class="govuk-table__row">
+                                    <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">Thermal Store</th>
+                                    <td class="govuk-table__cell"> £2500 - £3000</td>
+                                </tr>
+                                @if (Model.RadiatorChangeApproxCost != null)
+                                {
+                                    <tr class="govuk-table__row">
+                                        <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">Radiator Change</th>
+                                        <td class="govuk-table__cell">£@Model.RadiatorChangeApproxCost per radiator</td>
+                                    </tr>
+                                }
+                                @if (Model.GlazingUpgradeApproxCost != null && Model.EohResult.Glazing == (ushort)Enums.EnumGlazing.Single)
+                                {
+                                    <tr class="govuk-table__row">
+                                        <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">Windows</th>
+                                        <td class="govuk-table__cell">£@Model.GlazingUpgradeApproxCost</td>
+                                    </tr>
+                                }
+                                @if (Model.WallInsulationApproxCost != null && (Model.EohResult.WallType == (ushort)Enums.EnumWallType.CavityUnfilled || Model.EohResult.WallType == (ushort)Enums.EnumWallType.SolidUninsulated))
+                                {
+                                    <tr class="govuk-table__row">
+                                        <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">Wall Insulation</th>
+                                        <td class="govuk-table__cell">£@Model.WallInsulationApproxCost</td>
+                                    </tr>
+                                }
+                                @if (Model.LoftInsulationApproxCost != null)
+                                {
+                                    <tr class="govuk-table__row">
+                                        <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">Loft or roof Insulation</th>
+                                        <td class="govuk-table__cell">£@Model.LoftInsulationApproxCost</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </section>
+                }
+
+                @if ((@Model.EohResult.LtAshpEmissionSavings != null || @Model.EohResult.HtAshpEmissionSavings != null || Model.EohResult.GshpEmissionSavings != null || @Model.EohResult.HhpEmissionSavings != null)
+                  && (Model.EohResult.LtAshpSuitable == (ushort)Enums.EnumHeatPumpSuitability.Suitable || Model.EohResult.HtAshpSuitable == (ushort)Enums.EnumHeatPumpSuitability.Suitable || Model.EohResult.GshpSuitable == (ushort)Enums.EnumHeatPumpSuitability.Suitable || Model.EohResult.HhpSuitable == (ushort)Enums.EnumHeatPumpSuitability.Suitable))
+                {
+                    <hr class="hsm-section-break-blue govuk-!-margin-bottom-5">
+                    <section class="hsm-comparison-page-section hsm-comparison-page-section-pump-cost govuk-!-margin-bottom-5">
+                        <h2 class="govuk-heading-l govuk-!-margin-bottom-3">Carbon Emissions Comparison</h2>
+                        <p class="govuk-body">The below table provides the expected change in carbon emissions associated with installing each heat pump type in your home. These values are compared to your current heating system.</p>
+
+                        <table class="govuk-table govuk-!-margin-bottom-8">
+                            <thead class="govuk-table__head">
+                                <tr class="govuk-table__row">
+                                    <th scope="col" class="govuk-table__header hsm-width-one-half">Heat Pump Type</th>
+                                    <th scope="col" class="govuk-table__header hsm-width-one-half">Change in Heating Carbon Emissions</th>
+                                </tr>
+                            </thead>
+                            <tbody class="govuk-table__body">
+                                @if (@Model.EohResult.LtAshpEmissionSavings != null && Model.EohResult.LtAshpSuitable == (ushort)Enums.EnumHeatPumpSuitability.Suitable)
+                                {
+                                    <tr class="govuk-table__row">
+                                        <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">Air source</th>
+                                        <td class="govuk-table__cell">@(Convert.ToDecimal(Model.EohResult.LtAshpEmissionSavings * 100)) %</td>
+                                    </tr>
+                                }
+                                @if (@Model.EohResult.HtAshpEmissionSavings != null && Model.EohResult.HtAshpSuitable == (ushort)Enums.EnumHeatPumpSuitability.Suitable)
+                                {
+                                    <tr class="govuk-table__row">
+                                        <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">High temp air source</th>
+                                        <td class="govuk-table__cell">@(Convert.ToDecimal(Model.EohResult.HtAshpEmissionSavings * 100)) %</td>
+                                    </tr>
+                                }
+                                @if (@Model.EohResult.GshpEmissionSavings != null && Model.EohResult.GshpSuitable == (ushort)Enums.EnumHeatPumpSuitability.Suitable)
+                                {
+                                    <tr class="govuk-table__row">
+                                        <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">Ground source</th>
+                                        <td class="govuk-table__cell">@(Convert.ToDecimal(Model.EohResult.GshpEmissionSavings * 100)) %</td>
+                                    </tr>
+                                }
+                                @if (@Model.EohResult.HhpEmissionSavings != null && Model.EohResult.HhpSuitable == (ushort)Enums.EnumHeatPumpSuitability.Suitable)
+                                {
+                                    <tr class="govuk-table__row">
+                                        <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">Hybrid</th>
+                                        <td class="govuk-table__cell">@Convert.ToDecimal((Model.EohResult.HhpEmissionSavings * 100)) %</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </section>
+                }
+
+                <p class="govuk-body no-print">
+                    Return to
+                    <a asp-page="/Results" class="govuk-link govuk-link--no-visited-state">Results Overview</a>
+                    to read more about the types of heat pump available for your home and the potential home upgrades which you may need to make. Or, if you would like to explore your heat pump options further, follow the <a href="#next-steps" class="govuk-link govuk-body govuk-link--no-visited-state">Next Steps</a><span class="hsm-hidden-tablet"> on the top right-hand side of this page.</span><span class="hsm-hidden-desktop"> below.</span>
+                </p>
+
+                @await Html.PartialAsync("_printPage")
+
+            </div>
+            @if (Model.EohResult.LtAshpSuitable == (ushort)Enums.EnumHeatPumpSuitability.Suitable || Model.EohResult.HtAshpSuitable == (ushort)Enums.EnumHeatPumpSuitability.Suitable || Model.EohResult.GshpSuitable == (ushort)Enums.EnumHeatPumpSuitability.Suitable || Model.EohResult.HhpSuitable == (ushort)Enums.EnumHeatPumpSuitability.Suitable)
+            {
+                @await Html.PartialAsync("_nextStepsSection", Model.NextStepsViewModel)
+            }
+        }
+    </div>   
+</div>

@@ -1,0 +1,66 @@
+﻿@page
+@using Microsoft.AspNetCore.Http
+@model OCC.HSM.UI.Pages.SummaryModel
+@{
+    ViewData["Title"] = "Summary";
+    Layout = "~/Pages/Shared/_altLayout.cshtml";
+}
+
+<div class="hsm-summary-page">
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds-from-desktop">
+            @if (TempData["ErrorMsg"] != null)
+            {
+                <p>@TempData["ErrorMsg"]</p>
+            }
+            @if (Model.Questions != null)
+            {
+                <form method="get" novalidate>
+                    <h1 class="govuk-heading-xl hsm-heading-1">A summary of your answers</h1>
+                    <dl class="govuk-summary-list">
+                        @for (int i = 0; i < Model.Questions.Count; i++)
+                        {
+                            //If the current question is housesizeoption1 and EPC is existing, don't display the current question
+                            //If housesizeoption1 has already been answered and the current question is housesizeoption2, don't display the current question
+                            @if (!Model.Questions[i].IsHidden)
+                            {
+                                <div class="govuk-summary-list__row">
+                                    <dt class="govuk-summary-list__key govuk-!-width-one-half">
+                                        @Model.Questions[i].Prompt
+                                    </dt>
+                                    <dd class="govuk-summary-list__value">
+                                        @foreach (var item in Model.Questions[i].AnswerChoices)
+                                        {
+                                            if (item.Key.Equals(Model.GetStoredString(@Model.Questions[i].Key)))
+                                            {
+                                                @if (item.Key.StartsWith("housesizeoption1"))
+                                                {
+                                                    <span> @item.Text m<sup>2</sup></span>
+                                                }
+                                                else
+                                                {
+                                                    @item.Text
+                                                }
+                                            }
+                                        }
+                                    </dd>
+                                    <dd class="govuk-summary-list__actions">
+                                        <div>
+                                            @if (!string.IsNullOrEmpty(Model.GetStoredString(@Model.Questions[i].Key)))
+                                            {
+                                                <a href="/Question?q=@Model.Questions[i].Key&return=summary" class="govuk-body govuk-link govuk-link--no-visited-state hsm-form-link">
+                                                <span role="text">Change<span class="govuk-visually-hidden">&nbsp;@Model.Questions[i].BreadcrumbText</span></span>
+                                                </a>
+                                            }
+                                        </div>
+                                    </dd>
+                                </div>
+                             }
+                        }
+                    </dl>
+                    <button asp-page="/Results" type="submit" class="govuk-button govuk-!-display-block govuk-!-margin-bottom-3" data-module="govuk-button">Continue to results</button>
+               </form>
+            }
+        </div>
+    </div>
+</div>

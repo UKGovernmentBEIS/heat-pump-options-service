@@ -1,0 +1,20 @@
+﻿@page
+@model OCC.HSM.UI.Pages.ResultsModel
+@{
+    ViewData["Title"] = "Results";
+    Layout = "~/Pages/Shared/_altLayoutResults.cshtml";
+}
+
+@if (Model.Message != null)
+{
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l"> @Model.Message</h1>
+            <p class="govuk-body"> <a class="govuk-notification-banner__link" asp-page="Summary">Go back</a>.</p>
+        </div>
+    </div>
+}
+
+@await Html.PartialAsync("_ResultsContent", Model.ResultsViewModel)
+
+

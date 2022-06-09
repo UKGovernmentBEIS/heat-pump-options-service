@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.1</TargetFramework>
+		<Nullable>enable</Nullable>
+		<RootNamespace>OCC.HSM.Services</RootNamespace>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+	  <DebugType>full</DebugType>
+	  <DebugSymbols>true</DebugSymbols>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\model\Model.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Serilog" Version="2.9.0" />
+	  <PackageReference Include="Serilog.Sinks.Map" Version="1.0.1" />
+	  <PackageReference Include="Serilog.Sinks.RollingFile" Version="3.3.0" />
+	</ItemGroup>
+
+</Project>

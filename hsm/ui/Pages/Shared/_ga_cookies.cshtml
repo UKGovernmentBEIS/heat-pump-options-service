@@ -1,0 +1,29 @@
+﻿@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@{
+    string GoogleAnalyticsTrackingId = @Configuration["AppConfigSettings:GoogleAnalyticsTrackingId"];
+}
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=@GoogleAnalyticsTrackingId"></script>
+<script>
+        const jsGoogleAnalyticsTrackingId = '@GoogleAnalyticsTrackingId';
+        
+        if (document.cookie.includes("hsm_cookies_rejected=true", 0)) {
+
+            window['ga-disable-@GoogleAnalyticsTrackingId'] = true;
+
+            //Delete the GA cookies
+            var domain = window.location.hostname;
+            console.log(domain)
+            var cookies = document.cookie.split(";");
+            cookies.forEach(function (x) {
+                if (x.trim().startsWith("_ga")) {
+                    var keys = x.split('=');
+                    if (keys != null && keys.length > 1) {                        
+                        document.cookie = "".concat(keys[0].trim(), "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; domain=").concat(domain, "; path=/; secure");
+                    }
+                }
+            });
+        }
+</script>

@@ -1,0 +1,123 @@
+@page
+@model OCC.HSM.UI.Pages.AboutServiceModel
+@{
+	ViewData["Title"] = "About This Service";
+	Layout = "~/Pages/Shared/_altLayout.cshtml";
+}
+
+<div class="hsm-about-page">
+	<div class="govuk-grid-row govuk-!-margin-bottom-8">
+		<div class="govuk-grid-column-two-thirds-from-desktop">
+			<h1 class="govuk-heading-l govuk-!-margin-bottom-8 hsm-heading-1">More information about this service</h1>
+
+            <section class="hsm-about-page-section hsm-about-page-section-who govuk-!-margin-bottom-8">
+                <h2 class="govuk-heading-m govuk-!-margin-bottom-5 hsm-heading-1">Who this service is intended for?</h2>
+                <p class="govuk-body govuk-!-margin-bottom-3">This service is intended for anybody who is responsible for their homes heating system who can decide on the upgrades undertaken on this system. Therefore, it is intended for owner occupiers and landlords.</p>
+                <p class="govuk-body govuk-!-margin-bottom-3">If you rent your home as a social or private tenant, you may also use this service to inform yourself and your landlord of available options however, the responsibility for upgrading the heating system will usually sit with your landlord.</p>
+                <p class="govuk-body govuk-!-margin-bottom-3">If you live in a park home then you will be able to use this service through all stages however, the result will return that heat pumps are not suitable for your home.</p>
+                <p class="govuk-body govuk-!-margin-bottom-3">If you currently use a communal or district heating system then you can still use this service however, some of the content may not be relevant to your home and some of the results such as the carbon emissions may not be an accurate reflection for your home.</p>
+                <p class="govuk-body govuk-!-margin-bottom-3">If you live in a mobile home such as a van, caravan or houseboat, heat pumps are not suited to your home and this service does not have the option to select this type of home. </p>
+                <p class="govuk-body govuk-!-margin-bottom-3">If you already have a heat pump installation, please visit <a href="@Model.McsCertifiedUrl" class="govuk-link">MCS</a>  to find designers and installers. rather than using this service.</p>
+            </section>
+            
+            <section class="hsm-about-page-section hsm-about-page-section-overview govuk-!-margin-bottom-8">
+				<h2 class="govuk-heading-m govuk-!-margin-bottom-5 hsm-heading-1">How this service works - Overview</h2>
+                <p class="govuk-body govuk-!-margin-bottom-3">This service uses the details you input about your home alongside reference data from the BEIS funded Electrification of Heat Demonstration Project to approximate which Heat Pumps options could be suitable for installation in your home and how much they might cost.</p>
+                <p class="govuk-body govuk-!-margin-bottom-3">It also estimates how the installation of a heat pump may affect the carbon emissions associated with heating your home. It does this by comparing the fuel used in your current heating system to the electricity used to power a heat pump, it then estimates the efficiency of both your current heating system and a heat pump and calculates the relative carbon emissions per unit (kWh) of heat produced.</p>
+                <p class="govuk-body govuk-!-margin-bottom-3">Finally, based on your answers to the questions, the service presents potential home upgrades which may enable a heat pump to operate efficiently in your home and predicts an associated cost of these home upgrades.</p>
+			</section>
+            
+            <section class="hsm-about-page-section hsm-about-page-section-sources govuk-!-margin-bottom-8">
+				<h2 class="govuk-heading-m govuk-!-margin-bottom-5 hsm-heading-1">Information sources</h2>
+                <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-8">
+                    <li>The heat pump cost data was sourced from the BEIS Electrification of Heat Demonstration Project.</li>
+                    <li>The Analysis Engine calculates the heat pump size, and presents the associated cost, based upon data sourced from the BEIS Electrification of Heat Demonstration Project.</li>
+                    <li>The heat pump efficiencies used in the carbon calculations are inferred from the Renewable Heat Premium Payment project, the Renewable Energy Consumer Code and the MCS database. These will be updated with Electrification of Heat values once they are calculated.
+                    </li>
+                    <li>The efficiency of other heating systems is estimated using Tables 4a and 4b of The Government’s Standard Assessment Procedure for Energy Rating of Dwellings 2012 (SAP 2012) found at: <a href="@Model.EnergyRatingOfDwellings2012Url" class="govuk-link hsm-wrap">@Model.EnergyRatingOfDwellings2012Url</a></li>
+                    <li>The carbon factors used to compare carbon emissions are the BEIS Greenhouse gas reporting: conversion factors 2021 found at: <a href="@Model.BEISGreenhouseGasReportingUrl" class="govuk-link hsm-wrap">@Model.BEISGreenhouseGasReportingUrl</a></li>
+                </ul>
+
+                <p class="govuk-body govuk-!-margin-bottom-3">An overview of the fuel type and associated efficiency and carbon factor is given in the below table:</p>
+                <table class="govuk-table govuk-!-margin-bottom-8">
+                    <thead class="govuk-table__head">
+                        <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Fuel Type</th>
+                        <th scope="col" class="govuk-table__header">Heating Efficiency</th>
+                        <th scope="col" class="govuk-table__header">Carbon Emissions Factor (kgCO2/kWh)</th>
+                        @* <th scope="col" class="govuk-table__header">Unit Cost (p/kWh)</th> *@
+                        </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                        <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">Natural Gas</th>
+                        <td class="govuk-table__cell">79.25%</td>
+                        <td class="govuk-table__cell">0.18282</td>
+                        @* <td class="govuk-table__cell">7.0</td> *@
+                        </tr>
+                        <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">Oil</th>
+                        <td class="govuk-table__cell">73%</td>
+                        <td class="govuk-table__cell">0.26709</td>
+                        @* <td class="govuk-table__cell">5.0</td> *@
+                        </tr>
+                        <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">LPG</th>
+                        <td class="govuk-table__cell">79.25%</td>
+                        <td class="govuk-table__cell">0.21419</td>
+                        @* <td class="govuk-table__cell">14.1</td> *@
+                        </tr>
+                        <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">Electricity (assumed resistance)</th>
+                        <td class="govuk-table__cell">100%</td>
+                        <td class="govuk-table__cell">0.21016</td>
+                        @* <td class="govuk-table__cell">28.0</td> *@
+                        </tr>
+                        <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">ASHP (Electricity)</th>
+                        <td class="govuk-table__cell">290%</td>
+                        <td class="govuk-table__cell">0.21016</td>
+                        @* <td class="govuk-table__cell">28.0</td> *@
+                        </tr>
+                        <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">High Temperature ASHP (Electricity)</th>
+                        <td class="govuk-table__cell">240%</td>
+                        <td class="govuk-table__cell">0.21016</td>
+                        @* <td class="govuk-table__cell">28.0</td> *@
+                        </tr>
+                        <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">Hybrid HP (ASHP) Assumes 50% use</th>
+                        <td class="govuk-table__cell">290%</td>
+                        <td class="govuk-table__cell">0.21016</td>
+                        @* <td class="govuk-table__cell">28.0</td> *@
+                        </tr>
+                        <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">Hybrid HP (Gas Boiler) Assumes 50% use</th>
+                        <td class="govuk-table__cell">79.25%</td>
+                        <td class="govuk-table__cell">0.18282</td>
+                        @* <td class="govuk-table__cell">7.0</td> *@
+                        </tr>
+                        <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">GSHP (Electricity)</th>
+                        <td class="govuk-table__cell">330%</td>
+                        <td class="govuk-table__cell">0.21016</td>
+                        @* <td class="govuk-table__cell">28.0</td> *@
+                        </tr>
+                        <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">Non-renewable solid fuel</th>
+                        <td class="govuk-table__cell">65%</td>
+                        <td class="govuk-table__cell">0.31459</td>
+                        @* <td class="govuk-table__cell">6.1</td> *@
+                        </tr>
+                        <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header govuk-!-font-weight-regular">Biomass</th>
+                        <td class="govuk-table__cell">65%</td>
+                        <td class="govuk-table__cell">0.01513</td>
+                        @* <td class="govuk-table__cell">6.0</td> *@
+                        </tr>
+                    </tbody>
+                </table>
+			</section>
+		</div>
+	</div>
+</div>

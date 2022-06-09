@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hsm:inputs
+	xmlns:hsm="http://oxfordcc.co.uk/hsm-inputs"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://oxfordcc.co.uk/hsm-inputs hsm-inputs.xsd ">
+  <hsm:house-location optional="true" question="Where is your house?" bctext="House Location">
+    <hsm:answer key="england">
+      <hsm:usertext>England</hsm:usertext>
+    </hsm:answer>
+    <hsm:answer key="wales">
+      <hsm:usertext>Wales</hsm:usertext>
+    </hsm:answer>
+    <hsm:answer key="scotland">
+      <hsm:usertext>Scotland</hsm:usertext>
+    </hsm:answer>
+    <hsm:answer key="northern-ireland">
+      <hsm:usertext>Northern-Ireland</hsm:usertext>
+    </hsm:answer>
+  </hsm:house-location>
+  <hsm:house-type optional="true" question="What type of house do you have?" bctext="House Type">
+    <hsm:answer key="detached">
+      <hsm:usertext>Detached</hsm:usertext>
+      <hsm:certificate-match epc-key="built-form" match-type="exact">
+        <hsm:epc-text>Detached</hsm:epc-text>
+      </hsm:certificate-match>
+      <hsm:certificate-match epc-key="property-type" match-type="exact">
+        <hsm:epc-text>House</hsm:epc-text>
+        <hsm:epc-text>Bungalow</hsm:epc-text>
+      </hsm:certificate-match>
+    </hsm:answer>
+    <hsm:answer key="semidetached">
+      <hsm:usertext>Semi-Detached</hsm:usertext>
+      <hsm:certificate-match epc-key="built-form" match-type="exact">
+        <hsm:epc-text>Semi-Detached</hsm:epc-text>
+      </hsm:certificate-match>
+      <hsm:certificate-match epc-key="property-type" match-type="exact">
+        <hsm:epc-text>House</hsm:epc-text>
+        <hsm:epc-text>Bungalow</hsm:epc-text>
+      </hsm:certificate-match>
+    </hsm:answer>
+    <hsm:answer key="midterrace">
+      <hsm:usertext>Mid-Terrace</hsm:usertext>
+      <hsm:certificate-match epc-key="built-form" match-type="exact">
+        <hsm:epc-text>Mid-Terrace</hsm:epc-text>
+        <hsm:epc-text>Enclosed Mid-Terrace</hsm:epc-text>
+      </hsm:certificate-match>
+      <hsm:certificate-match epc-key="property-type" match-type="exact">
+        <hsm:epc-text>House</hsm:epc-text>
+        <hsm:epc-text>Bungalow</hsm:epc-text>
+      </hsm:certificate-match>
+    </hsm:answer>
+    <hsm:answer key="endterrace">
+      <hsm:usertext>End-Terrace</hsm:usertext>
+      <hsm:certificate-match epc-key="built-form" match-type="exact">
+        <hsm:epc-text>End-Terrace</hsm:epc-text>
+        <hsm:epc-text>Enclosed End-Terrace</hsm:epc-text>
+      </hsm:certificate-match>
+      <hsm:certificate-match epc-key="property-type" match-type="exact">
+        <hsm:epc-text>House</hsm:epc-text>
+        <hsm:epc-text>Bungalow</hsm:epc-text>
+      </hsm:certificate-match>
+    </hsm:answer>
+    <hsm:answer key="flatapartment">
+      <hsm:usertext>Flat/Apartment</hsm:usertext>
+      <hsm:certificate-match epc-key="property-type" match-type="exact">
+        <hsm:epc-text>Flat</hsm:epc-text>
+        <hsm:epc-text>Maisonette</hsm:epc-text>
+      </hsm:certificate-match>
+    </hsm:answer>
+    <hsm:explanation>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</hsm:explanation>
+  </hsm:house-type>
+  <hsm:wall-type optional="true" question="What is the main type of wall construction in your house?" bctext="Wall Type">
+    <hsm:answer key="soliduninsulated">
+      <hsm:usertext>Solid - uninsulated</hsm:usertext>
+      <hsm:certificate-match epc-key="walls-description" match-type="exact">
+        <hsm:epc-text>Solid brick, as built, no insulation (assumed)</hsm:epc-text>
+        <hsm:epc-text>Solid brick, as built, partial insulation (assumed)</hsm:epc-text>
+      </hsm:certificate-match>
+    </hsm:answer>
+    <hsm:answer key="solidinsulated">
+      <hsm:usertext>Solid - insulated</hsm:usertext>
+      <hsm:certificate-match epc-key="walls-description" match-type="exact">
+        <hsm:epc-text>Solid brick, with internal insulation</hsm:epc-text>
+        <hsm:epc-text>Solid brick, as built, insulated (assumed)</hsm:epc-text>
+        <hsm:epc-text>Solid brick, with external insulation</hsm:epc-text>
+      </hsm:certificate-match>
+    </hsm:answer>
+    <hsm:answer key="cavityunfilled">
+      <hsm:usertext>Cavity - unfilled</hsm:usertext>
+      <hsm:certificate-match epc-key="walls-description" match-type="exact">
+        <hsm:epc-text>Cavity wall, as built, no insulation (assumed)</hsm:epc-text>
+        <hsm:epc-text>Cavity wall, as built, insulated (assumed)</hsm:epc-text>
+        <hsm:epc-text>Cavity wall, as built, partial insulation (assumed)</hsm:epc-text>
+        <hsm:epc-text>Cavity wall,</hsm:epc-text>
+        <hsm:epc-text>Cavity wall, no insulation (assumed)</hsm:epc-text>
+      </hsm:certificate-match>
+    </hsm:answer>
+    <hsm:answer key="cavityfilled">
+      <hsm:usertext>Cavity - filled</hsm:usertext>
+      <hsm:certificate-match epc-key="walls-description" match-type="exact">
+        <hsm:epc-text>Cavity wall, filled cavity</hsm:epc-text>
+        <hsm:epc-text>Cavity wall, filled cavity and external insulation</hsm:epc-text>
+        <hsm:epc-text>Cavity wall, filled cavity and internal insulation</hsm:epc-text>
+        <hsm:epc-text>Timber frame, filled cavity</hsm:epc-text>
+        <hsm:epc-text>Solid brick, filled cavity</hsm:epc-text>
+        <hsm:epc-text>System built, filled cavity</hsm:epc-text>
+        <hsm:epc-text>Cavity wall, with external insulation</hsm:epc-text>
+        <hsm:epc-text>Cavity wall, with internal insulation</hsm:epc-text>
+      </hsm:certificate-match>
+    </hsm:answer>
+    <hsm:explanation>Etiam et purus sit amet dui convallis pharetra.</hsm:explanation>
+  </hsm:wall-type>
+  <hsm:house-age optional="true" question="Approximately when was your house built?" bctext="House Age">
+    <hsm:answer key="pre-1900">
+      <hsm:usertext>Pre 1900</hsm:usertext>
+      <hsm:certificate-match epc-key="construction-age-band" match-type="exact">
+        <hsm:epc-text>England and Wales: before 1900</hsm:epc-text>
+      </hsm:certificate-match>
+    </hsm:answer>
+    <hsm:answer key="1900-1929">
+      <hsm:usertext>1900 – 1929</hsm:usertext>
+      <hsm:certificate-match epc-key="construction-age-band" match-type="exact">
+        <hsm:epc-text>England and Wales: 1900-1929</hsm:epc-text>
+      </hsm:certificate-match>
+    </hsm:answer>
+    <hsm:answer key="1930-1949">
+      <hsm:usertext>1930 – 1949</hsm:usertext>
+      <hsm:certificate-match epc-key="construction-age-band" match-type="exact">
+        <hsm:epc-text>England and Wales: 1930-1949</hsm:epc-text>
+      </hsm:certificate-match>
+    </hsm:answer>
+    <hsm:answer key="1950-1966">
+      <hsm:usertext>1950 – 1966</hsm:usertext>
+      <hsm:certificate-match epc-key="construction-age-band" match-type="exact">
+        <hsm:epc-text>England and Wales: 1950-1966</hsm:epc-text>
+      </hsm:certificate-match>
+    </hsm:answer>
+    <hsm:answer key="1967-1975">
+      <hsm:usertext>1967 – 1975</hsm:usertext>
+      <hsm:certificate-match epc-key="construction-age-band" match-type="exact">
+        <hsm:epc-text>England and Wales: 1967-1975</hsm:epc-text>
+      </hsm:certificate-match>
+    </hsm:answer>
+    <hsm:answer key="1976-1982">
+      <hsm:usertext>1976 – 1982</hsm:usertext>
+      <hsm:certificate-match epc-key="construction-age-band" match-type="exact">
+        <hsm:epc-text>England and Wales: 1976-1982</hsm:epc-text>
+      </hsm:certificate-match>
+    </hsm:answer>
+    <hsm:answer key="1983-1990">
+      <hsm:usertext>1983 – 1990</hsm:usertext>
+      <hsm:certificate-match epc-key="construction-age-band" match-type="exact">
+        <hsm:epc-text>England and Wales: 1983-1990</hsm:epc-text>
+      </hsm:certificate-match>
+    </hsm:answer>
+    <hsm:answer key="1991-1995">
+      <hsm:usertext>1991 – 1995</hsm:usertext>
+      <hsm:certificate-match epc-key="construction-age-band" match-type="exact">
+        <hsm:epc-text>England and Wales: 1991-1995</hsm:epc-text>
+      </hsm:certificate-match>
+    </hsm:answer>
+    <hsm:answer key="1996-2002">
+      <hsm:usertext>1996 – 2002</hsm:usertext>
+      <hsm:certificate-match epc-key="construction-age-band" match-type="exact">
+        <hsm:epc-text>England and Wales: 1996-2002</hsm:epc-text>
+      </hsm:certificate-match>
+    </hsm:answer>
+    <hsm:answer key="2003-2006">
+      <hsm:usertext>2003 – 2006</hsm:usertext>
+      <hsm:certificate-match epc-key="construction-age-band" match-type="exact">
+        <hsm:epc-text>England and Wales: 2003-2006</hsm:epc-text>
+      </hsm:certificate-match>
+    </hsm:answer>
+    <hsm:answer key="2007-onwards">
+      <hsm:usertext>2007+</hsm:usertext>
+      <hsm:certificate-match epc-key="construction-age-band" match-type="exact">
+        <hsm:epc-text>England and Wales: 2007 onwards</hsm:epc-text>
+      </hsm:certificate-match>
+    </hsm:answer>
+    <hsm:explanation>Aliquam iaculis nibh nec nisi egestas eleifend.</hsm:explanation>
+  </hsm:house-age>
+  <hsm:house-size-option1 optional="true" question="What is the approximate floor area of your home?" bctext="House Size">
+    <hsm:answer key="lessthan-50">
+      <hsm:usertext>&lt;50</hsm:usertext>
+      <hsm:certificate-match epc-key="total-floor-area" match-type="integer-in-range">
+        <hsm:epc-text>&lt;50</hsm:epc-text>
+      </hsm:certificate-match>
+    </hsm:answer>
+    <hsm:answer key="50-70">
+      <hsm:usertext>50 – 70</hsm:usertext>
+      <hsm:certificate-match epc-key="total-floor-area" match-type="integer-in-range">
+        <hsm:epc-text>50-70</hsm:epc-text>
+      </hsm:certificate-match>
+    </hsm:answer>
+    <hsm:answer key="70-90">
+      <hsm:usertext>70 – 90</hsm:usertext>
+      <hsm:certificate-match epc-key="total-floor-area" match-type="integer-in-range">
+        <hsm:epc-text>70-90</hsm:epc-text>
+      </hsm:certificate-match>
+    </hsm:answer>
+    <hsm:answer key="90-110">
+      <hsm:usertext>90 – 110</hsm:usertext>
+      <hsm:certificate-match epc-key="total-floor-area" match-type="integer-in-range">
+        <hsm:epc-text>90-110</hsm:epc-text>
+      </hsm:certificate-match>
+    </hsm:answer>
+    <hsm:answer key="110-200">
+      <hsm:usertext>110 – 200</hsm:usertext>
+      <hsm:certificate-match epc-key="total-floor-area" match-type="integer-in-range">
+        <hsm:epc-text>110-200</hsm:epc-text>
+      </hsm:certificate-match>
+    </hsm:answer>
+    <hsm:answer key="200-300">
+      <hsm:usertext>200 – 300</hsm:usertext>
+      <hsm:certificate-match epc-key="total-floor-area" match-type="integer-in-range">
+        <hsm:epc-text>200-300</hsm:epc-text>
+      </hsm:certificate-match>
+    </hsm:answer>
+    <hsm:answer key="300-400">
+      <hsm:usertext>300 – 400</hsm:usertext>
+      <hsm:certificate-match epc-key="total-floor-area" match-type="integer-in-range">
+        <hsm:epc-text>300-400</hsm:epc-text>
+      </hsm:certificate-match>
+    </hsm:answer>
+    <hsm:answer key="greaterthan-400">
+      <hsm:usertext>&gt;400</hsm:usertext>
+      <hsm:certificate-match epc-key="total-floor-area" match-type="integer-in-range">
+        <hsm:epc-text>&gt;400</hsm:epc-text>
+      </hsm:certificate-match>
+    </hsm:answer>
+    <hsm:answer key="dont-know">
+      <hsm:usertext>Don't know</hsm:usertext>
+    </hsm:answer>
+    <hsm:explanation>Duis tincidunt purus in purus vehicula sollicitudin.</hsm:explanation>
+  </hsm:house-size-option1>
+  <hsm:house-size-option2 optional="true" question="How many bedrooms does your house have?" bctext="Number of bedrooms">
+    <hsm:answer key="one">
+      <hsm:usertext>1</hsm:usertext>
+    </hsm:answer>
+    <hsm:answer key="two">
+      <hsm:usertext>2</hsm:usertext>
+    </hsm:answer>
+    <hsm:answer key="three">
+      <hsm:usertext>3</hsm:usertext>
+    </hsm:answer>
+    <hsm:answer key="four">
+      <hsm:usertext>4</hsm:usertext>
+    </hsm:answer>
+    <hsm:answer key="five-plus">
+      <hsm:usertext>5+</hsm:usertext>
+    </hsm:answer>
+    <hsm:explanation>Nulla tristique diam vel dolor scelerisque, non ornare eros vehicula.</hsm:explanation>
+  </hsm:house-size-option2>
+  <hsm:number-of-floors optional="true" question="How many floors does your house have?" bctext="Number of Floors">
+    <hsm:answer key="one">
+      <hsm:usertext>1</hsm:usertext>
+    </hsm:answer>
+    <hsm:answer key="two">
+      <hsm:usertext>2</hsm:usertext>
+    </hsm:answer>
+    <hsm:answer key="threeplus">
+      <hsm:usertext>3+</hsm:usertext>
+    </hsm:answer>
+    <hsm:explanation>Phasellus nec metus fringilla, molestie urna id, eleifend ipsum.</hsm:explanation>
+  </hsm:number-of-floors>
+  <hsm:glazing optional="true" question="What is the predominant type of glazing in your house?" bctext="Glazing">
+    <hsm:answer key="single">
+      <hsm:usertext>Single</hsm:usertext>
+      <hsm:certificate-match epc-key="windows-description" match-type="exact">
+        <hsm:epc-text>Single glazed</hsm:epc-text>
+        <hsm:epc-text>Single glazedSingle glazing</hsm:epc-text>
+        <hsm:epc-text>Single glazed|Gwydrau sengl</hsm:epc-text>
+        <hsm:epc-text>Gwydrau sengl</hsm:epc-text>
+        <hsm:epc-text>Gwydrau dwbl gan mwyaf</hsm:epc-text>
+        <hsm:epc-text>Mostly  secondary glazing</hsm:epc-text>
+        <hsm:epc-text>Mostly  triple glazing</hsm:epc-text>
+        <hsm:epc-text>Gwydrau triphlyg llawn</hsm:epc-text>
+      </hsm:certificate-match>
+    </hsm:answer>
+    <hsm:answer key="double-or-triple">
+      <hsm:usertext>Double or Triple</hsm:usertext>
+      <hsm:certificate-match epc-key="windows-description" match-type="exact">
+        <hsm:epc-text>Fully double glazed</hsm:epc-text>
+        <hsm:epc-text>High performance glazing</hsm:epc-text>
+        <hsm:epc-text>Mostly double glazing</hsm:epc-text>
+        <hsm:epc-text>Full secondary glazing</hsm:epc-text>
+        <hsm:epc-text>Fully triple glazed</hsm:epc-text>
+        <hsm:epc-text>Mostly secondary glazing</hsm:epc-text>
+        <hsm:epc-text>Multiple glazing throughout</hsm:epc-text>
+        <hsm:epc-text>Mostly multiple glazing</hsm:epc-text>
+        <hsm:epc-text>Fully secondary glazing</hsm:epc-text>
+        <hsm:epc-text>Fully double glazed|Gwydrau dwbl llawn</hsm:epc-text>
+        <hsm:epc-text>High performance glazing|Ffenestri perfformiad uchel</hsm:epc-text>
+        <hsm:epc-text>Secondary glazing</hsm:epc-text>
+        <hsm:epc-text>Mostly triple glazing</hsm:epc-text>
+        <hsm:epc-text>Full triple glazing</hsm:epc-text>
+        <hsm:epc-text>Fully secondary glazed</hsm:epc-text>
+        <hsm:epc-text>Multiple glazing throughout</hsm:epc-text>
+        <hsm:epc-text>Mostly  double glazing</hsm:epc-text>
+        <hsm:epc-text>Gwydrau dwbl llawn</hsm:epc-text>
+        <hsm:epc-text>Multiple glazing throughout|Gwydrau lluosog ym mhobman</hsm:epc-text>
+        <hsm:epc-text>Fully double glazing</hsm:epc-text>
+        <hsm:epc-text>Mostly  multiple glazing</hsm:epc-text>
+        <hsm:epc-text>double glazing</hsm:epc-text>
+        <hsm:epc-text>Ffenestri perfformiad uchel</hsm:epc-text>
+        <hsm:epc-text>Full triple glazed</hsm:epc-text>
+        <hsm:epc-text>Multiple glazing throughout double glazing</hsm:epc-text>
+        <hsm:epc-text>double glazing</hsm:epc-text>
+        <hsm:epc-text>Gwydrau eilaidd llawn</hsm:epc-text>
+        <hsm:epc-text>Gwydrau triphlyg gan mwyaf</hsm:epc-text>
+        <hsm:epc-text>Gwydrau lluosog ym mhobman</hsm:epc-text>
+        <hsm:epc-text>Fully triple glazing</hsm:epc-text>
+        <hsm:epc-text>Fully triple glazed|Gwydrau triphlyg llawn</hsm:epc-text>
+        <hsm:epc-text>Fully Triple glazed</hsm:epc-text>
+        <hsm:epc-text>Multiple glazing throughout triple glazing</hsm:epc-text>
+        <hsm:epc-text>Partial double glazing</hsm:epc-text>
+        <hsm:epc-text>Partial double glazing|Gwydrau dwbl rhannol</hsm:epc-text>
+        <hsm:epc-text>Some double glazing</hsm:epc-text>
+        <hsm:epc-text>Single glazeddouble glazing</hsm:epc-text>
+        <hsm:epc-text>Some  double glazing</hsm:epc-text>
+        <hsm:epc-text>Partial double glazed</hsm:epc-text>
+      </hsm:certificate-match>
+    </hsm:answer>
+    <hsm:explanation>Quisque consequat nibh sed felis tincidunt feugiat.</hsm:explanation>
+  </hsm:glazing>
+  <hsm:gas-supply optional="true" question="Does your house have a mains gas supply?" bctext="Gas Supply">
+    <hsm:answer key="yes">
+      <hsm:usertext>Yes</hsm:usertext>
+      <hsm:certificate-match epc-key="mains-gas-flag" match-type="exact">
+        <hsm:epc-text>Y</hsm:epc-text>
+      </hsm:certificate-match>
+    </hsm:answer>
+    <hsm:answer key="no">
+      <hsm:usertext>No</hsm:usertext>
+      <hsm:certificate-match epc-key="mains-gas-flag" match-type="exact">
+        <hsm:epc-text>N</hsm:epc-text>
+      </hsm:certificate-match>
+    </hsm:answer>
+    <hsm:explanation>Cras tristique erat quis erat sodales eleifend.</hsm:explanation>
+  </hsm:gas-supply>
+  <hsm:current-heating-system optional="true" question="What do you use for your primary heating system?" bctext="Current Heating System">
+    <hsm:answer key="gas">
+      <hsm:usertext>Gas</hsm:usertext>
+      <hsm:certificate-match epc-key="main-fuel" match-type="exact">
+        <hsm:epc-text>mains gas (not community)</hsm:epc-text>
+        <hsm:epc-text>mains gas - this is for backwards compatibility only and should not be used</hsm:epc-text>
+        <hsm:epc-text>mains gas (community)</hsm:epc-text>
+      </hsm:certificate-match>
+    </hsm:answer>
+    <hsm:answer key="oil">
+      <hsm:usertext>Oil</hsm:usertext>
+      <hsm:certificate-match epc-key="main-fuel" match-type="xact">
+        <hsm:epc-text>oil (not community)</hsm:epc-text>
+        <hsm:epc-text>oil - this is for backwards compatibility only and should not be used</hsm:epc-text>
+        <hsm:epc-text>oil (community)</hsm:epc-text>
+        <hsm:epc-text>appliances able to use mineral oil or liquid biofuel</hsm:epc-text>
+      </hsm:certificate-match>
+    </hsm:answer>
+    <hsm:answer key="lpg">
+      <hsm:usertext>LPG</hsm:usertext>
+      <hsm:certificate-match epc-key="main-fuel" match-type="exact">
+        <hsm:epc-text>LPG (not community)</hsm:epc-text>
+        <hsm:epc-text>LPG - this is for backwards compatibility only and should not be used</hsm:epc-text>
+        <hsm:epc-text>bottled LPG</hsm:epc-text>
+        <hsm:epc-text>LPG (community)</hsm:epc-text>
+        <hsm:epc-text>LPG special condition</hsm:epc-text>
+      </hsm:certificate-match>
+    </hsm:answer>
+    <hsm:answer key="electricity">
+      <hsm:usertext>Electricity</hsm:usertext>
+      <hsm:certificate-match epc-key="main-fuel" match-type="exact">
+        <hsm:epc-text>electricity (not community)</hsm:epc-text>
+        <hsm:epc-text>electricity - this is for backwards compatibility only and should not be used</hsm:epc-text>
+        <hsm:epc-text>Electricity: electricity</hsm:epc-text>
+        <hsm:epc-text>unspecified tariff</hsm:epc-text>
+        <hsm:epc-text>electricity (community)</hsm:epc-text>
+      </hsm:certificate-match>
+    </hsm:answer>
+    <hsm:explanation>Mauris vestibulum ex a laoreet viverra.</hsm:explanation>
+  </hsm:current-heating-system>
+</hsm:inputs>

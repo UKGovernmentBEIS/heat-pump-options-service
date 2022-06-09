@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://oxfordcc.co.uk/hsm-inputs"
+	xmlns:hsm="http://oxfordcc.co.uk/hsm-inputs"
+	elementFormDefault="qualified">
+
+	<xs:element name="inputs" type="hsm:InputsType"></xs:element>
+
+	<xs:complexType name="InputsType">
+		<xs:annotation>
+			<xs:documentation>Contains all elements required as inputs
+			</xs:documentation>
+
+		</xs:annotation>
+		<xs:all>
+			<xs:element name="house-type" type="hsm:HouseType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="wall-type" type="hsm:WallType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="house-age" type="hsm:HouseAgeType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="house-size-option1" type="hsm:HouseSizeOption1Type" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="house-size-option2" type="hsm:HouseSizeOption2Type" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="roof-type" type="hsm:RoofType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="glazing" type="hsm:GlazingType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="gas-supply" type="hsm:GasSupplyType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="outside-space" type="hsm:OutsideSpace" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="current-heating-system" type="hsm:CurrentHeatingType" minOccurs="0" maxOccurs="1"/>
+		</xs:all>
+	</xs:complexType>
+
+	<!-- House Type -->
+	<xs:complexType name="HouseType">
+		<xs:annotation>
+			<xs:documentation>
+				Identified as a key factor in the type and size of heat pump required.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="answer" type="hsm:AnswerType" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element name="explanation" type="hsm:ExplanationType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute name="question" type="hsm:QuestionType" use="required"/>
+		<xs:attribute name="bctext" type="hsm:BCTextType" use="required"/>
+		<xs:attribute name="optional" type="xs:boolean" use="required"/>
+	</xs:complexType>
+
+	<!-- Wall Type -->
+	<xs:complexType name="WallType">
+		<xs:annotation>
+			<xs:documentation>
+				Key factor in size of heat pump and other upgrade measures
+
+				Suggested layer of decision tree
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="answer" type="hsm:AnswerType" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element name="explanation" type="hsm:ExplanationType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute name="question" type="hsm:QuestionType" use="required"/>
+		<xs:attribute name="bctext" type="hsm:BCTextType" use="required"/>
+		<xs:attribute name="optional" type="xs:boolean" use="required"/>
+	</xs:complexType>
+
+	<!-- House Age -->
+	<xs:complexType name="HouseAgeType">
+		<xs:annotation>
+			<xs:documentation>
+				This question would be a proxy for wall type should the user not know
+				that answer (type to be estimated from age)
+
+				Question may be relevant in analysis
+
+				Not a suggested layer of decision tree in its own right
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="answer" type="hsm:AnswerType" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element name="explanation" type="hsm:ExplanationType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute name="question" type="hsm:QuestionType" use="required"/>
+		<xs:attribute name="bctext" type="hsm:BCTextType" use="required"/>
+		<xs:attribute name="optional" type="xs:boolean" use="required"/>
+	</xs:complexType>
+
+	<!-- House Size - Option 1 -->
+	<xs:complexType name="HouseSizeOption1Type">
+		<xs:annotation>
+			<xs:documentation>
+				Key factor in size of heat pump and other upgrade measures
+
+				Suggested layer of decision tree
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="answer" type="hsm:AnswerType" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element name="explanation" type="hsm:ExplanationType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute name="question" type="hsm:QuestionType" use="required"/>
+		<xs:attribute name="bctext" type="hsm:BCTextType" use="required"/>
+		<xs:attribute name="optional" type="xs:boolean" use="required"/>
+	</xs:complexType>
+
+	<!-- House Size - Option 2 -->
+	<xs:complexType name="HouseSizeOption2Type">
+		<xs:annotation>
+			<xs:documentation>
+				This question would be a proxy for floor area should the user not know
+				that answer area to be estimated based on this answer
+
+				Not a suggested layer of decision tree in its own right
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="answer" type="hsm:AnswerType" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element name="explanation" type="hsm:ExplanationType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute name="question" type="hsm:QuestionType" use="required"/>
+		<xs:attribute name="bctext" type="hsm:BCTextType" use="required"/>
+		<xs:attribute name="optional" type="xs:boolean" use="required"/>
+	</xs:complexType>
+
+  <!-- Roof type -->
+  <xs:complexType name="RoofType">
+    <xs:annotation>
+      <xs:documentation>
+        This question will inform of home upgrade roof insulation requirements
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="answer" type="hsm:AnswerType" minOccurs="1" maxOccurs="unbounded"/>
+      <xs:element name="explanation" type="hsm:ExplanationType" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+    <xs:attribute name="question" type="hsm:QuestionType" use="required"/>
+    <xs:attribute name="bctext" type="hsm:BCTextType" use="required"/>
+    <xs:attribute name="optional" type="xs:boolean" use="required"/>
+  </xs:complexType>
+
+	<!-- Glazing -->
+	<xs:complexType name="GlazingType">
+		<xs:annotation>
+			<xs:documentation>
+				Question helps inform expected upgrades
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="answer" type="hsm:AnswerType" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element name="explanation" type="hsm:ExplanationType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute name="question" type="hsm:QuestionType" use="required"/>
+		<xs:attribute name="bctext" type="hsm:BCTextType" use="required"/>
+		<xs:attribute name="optional" type="xs:boolean" use="required"/>
+	</xs:complexType>
+
+	<!-- Gas supply -->
+	<xs:complexType name="GasSupplyType">
+		<xs:annotation>
+			<xs:documentation>
+				Question informs whether a Hybrid HP is possible or not.  Removes
+				options to be investigated through the decision tree
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="answer" type="hsm:AnswerType" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element name="explanation" type="hsm:ExplanationType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute name="question" type="hsm:QuestionType" use="required"/>
+		<xs:attribute name="bctext" type="hsm:BCTextType" use="required"/>
+		<xs:attribute name="optional" type="xs:boolean" use="required"/>
+	</xs:complexType>
+
+  <xs:complexType name="OutsideSpace">
+    <xs:annotation>
+      <xs:documentation>
+        This question is asked to ascertain whether sufficient outdoor area is available for a ground source heat pump installation.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="answer" type="hsm:AnswerType" minOccurs="1" maxOccurs="unbounded"/>
+      <xs:element name="explanation" type="hsm:ExplanationType" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+    <xs:attribute name="question" type="hsm:QuestionType" use="required"/>
+    <xs:attribute name="bctext" type="hsm:BCTextType" use="required"/>
+    <xs:attribute name="optional" type="xs:boolean" use="required"/>
+  </xs:complexType>
+
+	<!-- Current heating system -->
+	<xs:complexType name="CurrentHeatingType">
+		<xs:annotation>
+			<xs:documentation>
+        This question will inform the carbon savings attributed to a heat pump installation as a comparison with the current heating system.
+      </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="answer" type="hsm:AnswerType" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element name="explanation" type="hsm:ExplanationType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute name="question" type="hsm:QuestionType" use="required"/>
+		<xs:attribute name="bctext" type="hsm:BCTextType" use="required"/>
+		<xs:attribute name="optional" type="xs:boolean" use="required"/>
+	</xs:complexType>
+
+	<xs:complexType name="AnswerType">
+		<xs:sequence>
+			<xs:element name="usertext" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="certificate-match" type="hsm:CertificateMatchType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="description" type="xs:string" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute name="key" type="xs:string" use="required"/>
+    <xs:attribute name="dbencoding" type="xs:short" use="required"/>
+	</xs:complexType>
+	
+	<xs:complexType name="CertificateMatchType">
+		<xs:annotation>
+			<xs:documentation>
+				An element where the text is used to match with a value found in
+				an EPC certificate, the key attribute identifies the value in
+				the certificate and the match type describes which match
+				algorithm to use.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="epc-text" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+
+		<xs:attribute name="epc-key" type="xs:string" use="required"/>
+		<xs:attribute name="match-type" type="hsm:EPCMatchType" use="required"/>
+	</xs:complexType>
+	
+	<xs:simpleType name="QuestionType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="2"/>
+			<xs:maxLength value="128"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="EPCMatchType">
+		<xs:annotation>
+			<xs:documentation>
+				How answer choices are matched to values found in an energy performance certificate. 
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="exact"/>
+			<xs:enumeration value="integer-in-range"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="ExplanationType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0"></xs:minLength>
+			<xs:maxLength value="512"></xs:maxLength>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="BCTextType">
+		<xs:annotation>
+			<xs:documentation>
+				This is a short text value to be used in the bread crumb text.  
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="2"/>
+			<xs:maxLength value="26"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	</xs:schema>

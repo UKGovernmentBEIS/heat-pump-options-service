@@ -1,0 +1,78 @@
+﻿@page
+@using Microsoft.AspNetCore.Http
+@model QuestionModel
+
+@{
+    ViewData["Title"] = @Model.BreadCrumbsText;
+    var allAnswers = Model.Answers;
+    var currentChoice = @Model.CurrentChoice;
+
+}
+
+<div class="hsm-question-page">
+    <div class="govuk-grid-row govuk-!-margin-bottom-3">
+        <div class="govuk-grid-column-two-thirds-from-desktop"> 
+            @if (!string.IsNullOrEmpty(Model.Error))
+            {
+            <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
+                <h2 class="govuk-error-summary__title" id="error-summary-title">
+                    There is a problem
+                </h2>
+                <div class="govuk-error-summary__body">
+                    <ul class="govuk-list govuk-error-summary__list">
+                        <li>
+                            <a href="#hsm-question-radios">Please select an option before moving on</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            }
+            <form method="post" novalidate>              
+                <div class="govuk-form-group @(string.IsNullOrEmpty(Model.Error) ? "" : "govuk-form-group--error")">
+                    <fieldset class="govuk-fieldset">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-5">
+                            <h1 class="govuk-fieldset__heading govuk-!-padding-left-0 ">
+                                @* <span class="govuk-caption-l">Question @(@Model.CurrentQuestionIndex + 1) of @Model.TotalQuestions</span> *@
+                                @Model.Prompt
+                            </h1>
+                        </legend>
+                        @if (!String.IsNullOrWhiteSpace(Model.Explanation))
+                        {
+                                <p class="govuk-body govuk-!-margin-bottom-5">
+                                @if (@Model.Explanation.Split('|').Length > 0)
+                                {
+                                    @Model.Explanation.Split('|')[0]
+                                }
+                                </p>
+                        }
+
+                        <p id="error" class="govuk-error-message">
+                            <span class="@(string.IsNullOrEmpty(Model.Error) ? "govuk-visually-hidden" : "")">@Model.Error</span>
+                        </p>
+
+                        <div class="govuk-radios" data-module="govuk-radios" id="hsm-question-radios">
+                            @if (Model.Answers != null)
+                            {
+                                @foreach (var ans in Model.Answers)
+                                {
+                                        <div class="govuk-radios__item @(@Model.HasImages ? "" : "border-none")">
+                                            <div>
+                                                <input type="radio" class="govuk-radios__input" asp-for="CurrentChoice" value="@ans.Key" id="@ans.Key" aria-describedby="@ans.Key-hint">
+                                                <label class="govuk-label govuk-radios__label" for="@ans.Key">@ans.Text</label>
+                                                <div id="@ans.Key-hint" class="govuk-hint govuk-radios__hint">
+                                                    @ans.Description
+                                                </div>
+                                            </div>
+                                        </div>
+                                }
+                            }
+                        </div>
+                    </fieldset>
+                </div>
+                <button id="question-btn" class="govuk-button govuk-!-margin-bottom-5" data-module="govuk-button">Continue</button>
+                <a class="govuk-link govuk-!-display-block hsm-link" href="/postcode">Back to this service’s landing page</a>
+            </form>
+        </div>
+    </div>
+</div>
+

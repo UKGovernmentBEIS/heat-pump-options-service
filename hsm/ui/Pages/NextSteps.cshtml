@@ -1,0 +1,84 @@
+﻿@page
+@model OCC.HSM.UI.Pages.NextStepsModel
+@{
+	ViewData["Title"] = "NextSteps";
+	Layout = "~/Pages/Shared/_altLayout.cshtml";
+}
+
+<div class="question_container">
+	<div class="question_prompt question max_width50 spacing_top_xxl">
+		Next steps
+	</div>
+	<div class="spacing_top_l"></div>
+	<div class="next_steps_desc">
+		Based on <a asp-page="Results" class="more_info"> your results </a> these are some useful resources for you to take the next steps
+	</div>
+</div>
+<div class="spacing_top_xxl"></div>
+<div class="next_steps_bar box_shadow spacing_top_xxl padding_left50 padding_bottom50 padding_top50">
+	<span class="pump_heading spacing_bottom_l">System designers / Installers</span>
+
+	<div class="spacing_top_xxl">
+		<span class="next_steps_sub_h spacing_bottom_l">Speak to an installer</span>
+		<p class="font_size_18 next_steps_itm spacing_top_m">
+			Generate a report from your results and show it to your installer
+		</p>
+	</div>
+	<div class="button_container spacing_bottom_xxl">
+		<div class="export rounded spacing_top_xl float_left">
+			<img src="~/img/download.png" class="spacing_right_s" />
+			Generate a report
+		</div>
+		<div class="spacing_top_xl spacing_left_xxl float_left">
+			<a target="_blank" href="https://mcscertified.com/">
+				<input type="button" class="summary_button hide" value="Find an installer" />
+			</a>
+		</div>
+	</div>
+	<div class="spacing_top_xxl">
+		<span class="next_steps_sub_h spacing_bottom_l">TrustMark</span>
+		<p class="font_size_18 next_steps_itm">
+			TrustMark is the Government Endorsed Quality Scheme covering work a consumer chooses to have carried out in or around their home
+		</p>
+	</div>
+	<div class="spacing_top_xl">
+		<button type="submit" class="summary_button hide">Find out more</button>
+	</div>
+</div>
+<div class="spacing_top_xxl"></div>
+<div class="next_steps_bar box_shadow spacing_bottom_xxl padding_left50 padding_bottom50 padding_top50">
+	<div>
+		<span class="pump_heading spacing_bottom_l">Simple Energy Advice – Home energy grants</span>
+		<p class="font_size_18 next_steps_itm">
+		We will show you relevant national and local grants that you might be eligible for.
+	</div>
+	<div class="spacing_top_xl">
+		<button type="submit" class="summary_button spacing_right_s">Find out more</button>
+		<button type="submit" class="secondary_button">Find out more Scotland</button>
+	</div>
+</div>
+<div class="spacing_top_xxl"></div>
+<div class="next_steps_bar box_shadow spacing_top_xxl padding_left50 padding_bottom50 padding_top50">
+	<span class="pump_heading spacing_bottom_l">Industry bodies</span>
+
+	<div class="spacing_top_xxl">
+		<span class="next_steps_sub_h spacing_bottom_l">Heat Pump Association</span>
+		<p class="font_size_18 next_steps_itm spacing_top_m">
+			Line to describe this  industry body goes here
+		</p>
+	</div>
+	<div class="spacing_top_xl">
+		<button type="submit" class="summary_button hide">Find out more</button>
+	</div>
+	<div class="spacing_top_xxl">
+		<span class="next_steps_sub_h spacing_bottom_l">Ground Source Heat Pump Association</span>
+		<p class="font_size_18 next_steps_itm">
+			Line to describe this  industry body goes here
+		</p>
+	</div>
+	<div class="spacing_top_xl">
+		<button type="submit" class="summary_button hide">Find out more</button>
+	</div>
+</div>
+<div class="spacing_top_xxl"></div>
+
