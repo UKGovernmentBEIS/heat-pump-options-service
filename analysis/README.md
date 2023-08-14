@@ -48,3 +48,12 @@ This will create an anaconda environment called "HPOS_analysis" with all the req
     USMART_KEY_SECRET
 
 This will require a USMART account. Once you log in you can find your API key ID and secret by navigating to profile in the top right.
+
+## Public Dataset Change
+The analysis code is written to read the private datasets as it was written prior to dataset publication. The non-restricted (GDPR) data has now been cleansed and collected into a single published dataset. As the data is published on a government open source license, the code can be rewritten to access and read from this dataset without requiring the permissions which are needed to read the private data. 
+
+This work will require changes to the definition of the get_survey_datasets() function in the “eoh_table_aux.py” file. 
+
+URLs are read in from urls_v2.json as the private data stored at multiple URLs – The public version is at a single URL. (API: https://api.usmart.io/org/92610836-6c2b-4a26-a0a0-b903bde0dc46/231dd812-ed7f-41b4-bbe2-c0929ca95299/latest/urql ). Code changes will be required to account for this. 
+
+There may also be changes in the column names between the private and public datasets, corresponding changes to these fields will need to made in the code.
